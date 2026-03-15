@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://occi-volt.fr',
+  site: 'https://occivolt.pages.dev',
   output: 'static',
   integrations: [
     sitemap({ i18n: { defaultLocale: 'fr' } }),
