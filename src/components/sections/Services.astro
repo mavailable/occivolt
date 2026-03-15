@@ -1,0 +1,115 @@
+---
+import Button from '@components/ui/Button.astro';
+
+const services = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />`,
+    title: 'Installation électrique',
+    description: "Tableau, câblage, prises, éclairage intérieur et extérieur, spots encastrés. Chaque chantier respecte la norme NF C 15-100.",
+    photo: '/images/galerie/spots-plafond.jpg',
+    photoAlt: "Spots LED encastrés dans un faux plafond — Occi'Volt",
+    number: '01',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.71-5.71a8 8 0 1111.42 0l-5.71 5.71zm0 0L19 21" />`,
+    title: 'Dépannage & rénovation',
+    description: "Intervention rapide dans un rayon de 30 km. Diagnostic, remplacement de tableaux, remise aux normes.",
+    photo: '/images/galerie/avant-apres-tableau.jpg',
+    photoAlt: "Avant/après remplacement tableau électrique — Occi'Volt",
+    number: '02',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,
+    title: 'Mise en conformité',
+    description: "Diagnostic complet et mise aux normes NF C 15-100, installation Linky. Indispensable pour votre sécurité.",
+    photo: '/images/galerie/tableau-3-rangees.jpg',
+    photoAlt: "Tableau électrique 3 rangées avec Linky — Occi'Volt",
+    number: '03',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />`,
+    title: 'Portails électriques',
+    description: "Motorisation, automatisation, télécommande, interphone et éclairage d'accès. Confort et sécurité.",
+    photo: '/images/galerie/coffret-exterieur.jpg',
+    photoAlt: "Coffret électrique extérieur — Occi'Volt",
+    number: '04',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /><circle cx="18" cy="18" r="3" stroke-linecap="round" />`,
+    title: 'Bornes IRVE',
+    badge: 'Bientôt',
+    description: "Recharge de véhicules électriques à domicile avec certification IRVE. La transition énergétique chez vous.",
+    photo: '/images/galerie/coffret-secondaire.jpg',
+    photoAlt: "Coffret secondaire avec disjoncteur — Occi'Volt",
+    number: '05',
+  },
+];
+---
+
+<section id="services" class="relative py-20 md:py-28 bg-neutral-50 overflow-hidden">
+  <!-- Background texture -->
+  <div class="absolute inset-0 opacity-[0.015]" aria-hidden="true"
+    style="background-image: url('data:image/svg+xml,<svg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><g fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;><g fill=&quot;%23000&quot; fill-opacity=&quot;1&quot;><path d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/></g></g></svg>');"></div>
+
+  <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <span class="inline-block text-xs font-bold text-primary-600 uppercase tracking-widest mb-3">Nos services</span>
+      <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-secondary-950 leading-tight mb-4">
+        Des solutions électriques <span class="text-primary-600">adaptées à chaque projet</span>
+      </h2>
+      <p class="text-neutral-500 max-w-xl mx-auto">
+        Que ce soit pour une installation neuve, une rénovation ou un dépannage urgent, nous avons la solution.
+      </p>
+    </div>
+
+    <!-- Services — compact cards with photo strip -->
+    <div class="space-y-4">
+      {services.map((s, i) => (
+        <article class="group relative bg-white rounded-xl border border-neutral-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class={`flex flex-col sm:flex-row items-stretch ${i % 2 !== 0 ? 'sm:flex-row-reverse' : ''}`}>
+            <!-- Photo — narrow strip -->
+            <div class="relative sm:w-48 md:w-56 shrink-0 overflow-hidden">
+              <img
+                src={s.photo}
+                alt={s.photoAlt}
+                class="w-full h-40 sm:h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-secondary-950/20"></div>
+              <span class="absolute top-3 left-3 text-white/15 text-5xl font-heading font-black leading-none">{s.number}</span>
+            </div>
+
+            <!-- Content — compact -->
+            <div class="flex-1 p-5 md:p-7 flex items-center">
+              <div class="flex items-start gap-4 w-full">
+                <div class="w-11 h-11 bg-primary-50 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary-600 transition-colors duration-300">
+                  <svg class="w-5 h-5 text-primary-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <Fragment set:html={s.icon} />
+                  </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2.5 mb-1.5">
+                    <h3 class="text-lg md:text-xl font-heading font-bold text-secondary-950">{s.title}</h3>
+                    {s.badge && (
+                      <span class="bg-accent-100 text-accent-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                        {s.badge}
+                      </span>
+                    )}
+                  </div>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{s.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA intégré dans la dernière carte -->
+    <a href="#contact" class="group/cta flex items-center justify-center gap-3 mt-4 py-5 bg-primary-600 hover:bg-primary-700 text-white font-heading font-bold text-lg rounded-xl transition-all duration-300 hover:shadow-lg">
+      Demander un devis gratuit
+      <svg class="w-5 h-5 group-hover/cta:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+    </a>
+  </div>
+</section>

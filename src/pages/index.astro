@@ -1,0 +1,155 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
+import StickyMobileCTA from '@components/layout/StickyMobileCTA.astro';
+import Hero from '@components/sections/Hero.astro';
+import SocialProof from '@components/sections/SocialProof.astro';
+import Services from '@components/sections/Services.astro';
+import Testimonials from '@components/sections/Testimonials.astro';
+import Gallery from '@components/sections/Gallery.astro';
+import About from '@components/sections/About.astro';
+import FAQ from '@components/sections/FAQ.astro';
+import CTA from '@components/sections/CTA.astro';
+import ContactSection from '@components/sections/ContactSection.astro';
+import { business } from '@data/business';
+
+/* ── Schema.org JSON-LD ── */
+const electricianSchema = {
+  "@context": "https://schema.org",
+  "@type": "Electrician",
+  "name": business.name,
+  "image": `${business.url}/images/og-image.jpg`,
+  "logo": `${business.url}/images/logo-occivolt.png`,
+  "description": business.description,
+  "url": business.url,
+  "telephone": business.phone,
+  "email": business.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": business.address.street,
+    "addressLocality": business.address.city,
+    "postalCode": business.address.postalCode,
+    "addressRegion": business.address.region,
+    "addressCountry": business.address.country,
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": business.geo.latitude,
+    "longitude": business.geo.longitude,
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Castelnaudary" },
+    {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": business.geo.latitude,
+        "longitude": business.geo.longitude,
+      },
+      "geoRadius": "50000",
+    },
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "07:30",
+      "closes": "17:00",
+    },
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": business.founder,
+    "jobTitle": "Électricien, Fondateur",
+  },
+  "foundingDate": business.foundingDate,
+  "priceRange": "€€",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services d'électricité",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Installation électrique", "description": "Installation complète : tableau, câblage, prises, éclairage intérieur et extérieur, spots encastrés. Respect de la norme NF C 15-100." }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dépannage et rénovation", "description": "Intervention rapide dans un rayon de 30 km pour diagnostiquer et résoudre vos problèmes électriques. Remplacement de tableaux, remise aux normes." }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mise en conformité", "description": "Diagnostic complet et mise aux normes NF C 15-100. Installation de compteurs Linky, remplacement de composants obsolètes." }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Portails électriques", "description": "Motorisation et automatisation de portails. Ouverture télécommandée, interphone, éclairage d'accès." }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bornes de recharge IRVE", "description": "Installation de bornes de recharge pour véhicules électriques à domicile (prochainement, certification IRVE en cours)." }},
+    ],
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": business.rating.value,
+    "reviewCount": business.rating.count,
+    "bestRating": "5",
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Nathalie D." },
+      "datePublished": "2026-02",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Très satisfaite de l'intervention pour le dépannage électrique. Intervention rapide, travail soigné et professionnel.",
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Adeline" },
+      "datePublished": "2026-01",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Très satisfait du travail réalisé, une rénovation complète ! L'artisan est vraiment à l'écoute, réactif, compétent et de bon conseils.",
+    },
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Quelle est votre zone d'intervention ?", "acceptedAnswer": { "@type": "Answer", "text": "Occi'Volt est basé à Verdun-en-Lauragais (11400), à quelques minutes de Castelnaudary. Nous intervenons dans un rayon de 30 km pour les dépannages urgents et jusqu'à 50 km pour les chantiers planifiés. Cela couvre Castelnaudary, Bram, Villefranche-de-Lauragais, Revel, Saint-Papoul et les communes environnantes." }},
+    { "@type": "Question", "name": "Le devis est-il vraiment gratuit ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, le devis est entièrement gratuit et sans engagement. Tony se déplace chez vous pour évaluer votre besoin, prend le temps de vous expliquer les travaux envisagés, puis vous envoie un devis détaillé. Vous décidez en toute liberté." }},
+    { "@type": "Question", "name": "Quels sont vos horaires ?", "acceptedAnswer": { "@type": "Answer", "text": "Occi'Volt est disponible du lundi au vendredi, de 7h30 à 17h00. En cas de dépannage urgent, contactez le 06 63 62 78 71." }},
+    { "@type": "Question", "name": "Quels types de travaux prenez-vous en charge ?", "acceptedAnswer": { "@type": "Answer", "text": "Occi'Volt intervient sur tous les travaux d'électricité pour les particuliers : installation complète dans le neuf, rénovation électrique, dépannage, mise en conformité aux normes NF C 15-100, motorisation de portails, éclairage intérieur et extérieur, et prochainement installation de bornes de recharge IRVE." }},
+    { "@type": "Question", "name": "Êtes-vous assuré pour vos interventions ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, Occi'Volt Électricité dispose d'une assurance responsabilité civile professionnelle et d'une garantie décennale qui couvrent l'ensemble des interventions." }},
+    { "@type": "Question", "name": "Combien de temps dure une intervention ?", "acceptedAnswer": { "@type": "Answer", "text": "Un dépannage simple peut être réglé en une à deux heures. Une rénovation de tableau électrique prend généralement une journée. Pour les chantiers plus importants, la durée estimée est indiquée dans le devis." }},
+    { "@type": "Question", "name": "Quels moyens de paiement acceptez-vous ?", "acceptedAnswer": { "@type": "Answer", "text": "Occi'Volt accepte les paiements par virement bancaire, chèque et espèces. Les modalités de paiement sont précisées dans le devis, avec possibilité d'échelonnement selon le montant des travaux." }},
+    { "@type": "Question", "name": "Pourquoi choisir Occi'Volt plutôt qu'un autre électricien ?", "acceptedAnswer": { "@type": "Answer", "text": "Occi'Volt offre un interlocuteur unique, réactif et à l'écoute. Travaillant exclusivement avec des particuliers, chaque projet reçoit toute l'attention nécessaire. Les clients soulignent la ponctualité, la qualité du travail et la clarté des explications. Le devis est gratuit." }},
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": business.name,
+  "url": business.url,
+  "description": business.description,
+  "publisher": {
+    "@type": "Organization",
+    "name": business.name,
+    "logo": { "@type": "ImageObject", "url": `${business.url}/images/logo-occivolt.png` },
+  },
+};
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(electricianSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  </Fragment>
+
+  <Header />
+
+  <main id="main-content">
+    <Hero />
+    <SocialProof />
+    <Services />
+    <Testimonials />
+    <Gallery />
+    <CTA />
+    <About />
+    <FAQ />
+    <ContactSection />
+  </main>
+
+  <Footer />
+  <StickyMobileCTA />
+</BaseLayout>

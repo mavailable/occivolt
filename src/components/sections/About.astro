@@ -1,0 +1,95 @@
+---
+import Button from '@components/ui/Button.astro';
+import { business } from '@data/business';
+---
+
+<section id="a-propos" class="relative py-20 md:py-24 bg-white overflow-hidden">
+  <!-- Decorative dots pattern -->
+  <div class="absolute top-0 right-0 w-64 h-64 opacity-[0.03]" aria-hidden="true"
+    style="background-image: radial-gradient(circle, #2E7B37 1px, transparent 1px); background-size: 20px 20px;">
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Photo side -->
+      <div class="relative">
+        <!-- Main photo -->
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src="/images/galerie/avant-apres-tableau.jpg"
+            alt="Tableau électrique avant/après — un exemple du savoir-faire Occi'Volt"
+            class="w-full aspect-[4/3] object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-secondary-950/40 via-transparent to-transparent"></div>
+        </div>
+
+        <!-- Floating card -->
+        <div class="absolute -bottom-6 -right-4 md:right-4 bg-white rounded-xl shadow-lg border border-neutral-100 p-4 max-w-[200px]">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-2xl font-heading font-extrabold text-secondary-900">100%</p>
+              <p class="text-xs text-neutral-500">Conforme NF C 15-100</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative shapes -->
+        <div class="absolute -top-4 -left-4 w-24 h-24 bg-primary-500/10 rounded-2xl -z-10" aria-hidden="true"></div>
+        <div class="absolute -bottom-4 -left-8 w-16 h-16 bg-accent-400/15 rounded-xl -z-10" aria-hidden="true"></div>
+      </div>
+
+      <!-- Text side -->
+      <div>
+        <span class="inline-block text-xs font-bold text-primary-600 uppercase tracking-widest mb-3">À propos</span>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 mb-6">
+          Votre artisan électricien <span class="text-primary-600">dans le Lauragais</span>
+        </h2>
+
+        <div class="space-y-4 text-neutral-600 leading-relaxed">
+          <p>
+            Je m'appelle <strong class="text-secondary-900">Tony</strong>, fondateur d'Occi'Volt Électricité. Installé à Verdun-en-Lauragais depuis janvier 2025, j'interviens auprès des particuliers à Castelnaudary et dans tout le Lauragais audois.
+          </p>
+          <p>
+            Après l'obtention de mon Titre Professionnel d'Électricien en Bâtiment et plus de trois ans d'expérience terrain — des rénovations complètes aux dépannages d'urgence — j'ai créé ma propre entreprise avec une conviction&nbsp;: <strong class="text-secondary-900">un travail bien fait commence par une écoute attentive</strong>.
+          </p>
+          <p>
+            Occi'Volt, c'est un engagement&nbsp;: un service électrique fiable, propre et conforme aux normes. Je me déplace dans un rayon de 50&nbsp;km, je propose des devis gratuits et sans engagement, et je m'engage sur la qualité de chaque intervention.
+          </p>
+        </div>
+
+        <!-- Key points -->
+        <div class="grid grid-cols-2 gap-4 mt-8 mb-8">
+          {[
+            { icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />', label: 'Réactivité', desc: 'Intervention rapide' },
+            { icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />', label: 'Proximité', desc: 'Basé dans le Lauragais' },
+            { icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />', label: 'Qualité', desc: 'Norme NF C 15-100' },
+            { icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />', label: 'Transparence', desc: 'Devis gratuit détaillé' },
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <Fragment set:html={item.icon} />
+                </svg>
+              </div>
+              <div>
+                <p class="font-heading font-bold text-secondary-900 text-sm">{item.label}</p>
+                <p class="text-xs text-neutral-500">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <Button href="#contact" size="lg">
+          Parlons de votre projet
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>

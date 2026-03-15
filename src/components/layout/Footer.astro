@@ -1,0 +1,96 @@
+---
+import { business } from '@data/business';
+
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Services', href: '#services' },
+  { label: 'Réalisations', href: '#galerie' },
+  { label: 'À propos', href: '#a-propos' },
+  { label: 'Contact', href: '#contact' },
+];
+
+const legalLinks = [
+  { label: 'Mentions légales', href: '/mentions-legales' },
+  { label: 'Politique de confidentialité', href: '/politique-confidentialite' },
+];
+---
+
+<footer class="bg-secondary-900 text-neutral-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Colonne 1 : Infos -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="#1A1C1F"/>
+            <path d="M18 4L10 18h5l-1 10 8-14h-5l1-10z" fill="#F59E0B" stroke="#3D9A47" stroke-width="1"/>
+          </svg>
+          <span class="font-heading font-bold text-white text-lg">{business.shortName}</span>
+        </div>
+        <p class="text-sm leading-relaxed mb-4">
+          {business.description}
+        </p>
+        <address class="not-italic text-sm space-y-1">
+          <p>{business.address.street}, {business.address.postalCode} {business.address.city}</p>
+          <p>
+            <a href={`tel:${business.phone}`} class="hover:text-accent-400 transition-colors">
+              {business.phoneDisplay}
+            </a>
+          </p>
+          <p>
+            <a href={`mailto:${business.email}`} class="hover:text-accent-400 transition-colors">
+              {business.email}
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <!-- Colonne 2 : Navigation -->
+      <div>
+        <h3 class="font-heading font-semibold text-white text-base mb-4">Navigation</h3>
+        <ul class="space-y-2">
+          {footerLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-sm hover:text-neutral-100 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Colonne 3 : Horaires -->
+      <div>
+        <h3 class="font-heading font-semibold text-white text-base mb-4">Horaires</h3>
+        <ul class="space-y-1 text-sm">
+          {business.hours.map(h => (
+            <li class="flex justify-between">
+              <span>{h.day}</span>
+              <span class={h.open === 'Fermé' ? 'text-neutral-500' : ''}>
+                {h.open === 'Fermé' ? 'Fermé' : `${h.open} – ${h.close}`}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barre basse -->
+  <div class="border-t border-secondary-800 py-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-500">
+      <p>&copy; {currentYear} {business.name} — Tous droits réservés</p>
+      <div class="flex items-center gap-4">
+        {legalLinks.map(link => (
+          <a href={link.href} class="hover:text-neutral-300 transition-colors">
+            {link.label}
+          </a>
+        ))}
+        <span class="text-neutral-600">Site créé par Web Factory</span>
+      </div>
+    </div>
+  </div>
+</footer>

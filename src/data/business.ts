@@ -1,0 +1,52 @@
+export const business = {
+  name: "Occi'Volt Électricité",
+  shortName: "Occi'Volt",
+  tagline: "Votre électricien à Castelnaudary et dans tout le Lauragais",
+  description: "Électricien pour particuliers à Castelnaudary et dans le Lauragais. Installation, rénovation, dépannage, mise en conformité. Devis gratuit, intervention rapide.",
+  founder: "Tony",
+  foundingDate: "2025-01",
+  phone: "+33663627871",
+  phoneDisplay: "06 63 62 78 71",
+  email: "occivolt@gmail.com",
+  url: "https://occi-volt.fr",
+  address: {
+    street: "Verdun-en-Lauragais",
+    city: "Castelnaudary",
+    postalCode: "11400",
+    region: "Occitanie",
+    department: "Aude",
+    country: "FR",
+  },
+  geo: {
+    latitude: 43.366,
+    longitude: 2.059,
+  },
+  hours: [
+    { day: "Lundi", open: "7h30", close: "17h00" },
+    { day: "Mardi", open: "7h30", close: "17h00" },
+    { day: "Mercredi", open: "7h30", close: "17h00" },
+    { day: "Jeudi", open: "7h30", close: "17h00" },
+    { day: "Vendredi", open: "7h30", close: "17h00" },
+    { day: "Samedi", open: "Fermé", close: "Fermé" },
+    { day: "Dimanche", open: "Fermé", close: "Fermé" },
+  ],
+  zone: {
+    depannage: "30 km",
+    chantiers: "50 km",
+  },
+  social: {
+    instagram: "",
+    facebook: "",
+    googleBusiness: "https://maps.app.goo.gl/occivolt",
+  },
+  seo: {
+    defaultTitle: "Occi'Volt — Électricien à Castelnaudary | Devis gratuit",
+    defaultDescription: "Électricien pour particuliers à Castelnaudary et dans le Lauragais. Installation, rénovation, dépannage, mise en conformité. Devis gratuit, intervention rapide.",
+    ogImage: "/images/og-image.jpg",
+  },
+  rating: {
+    value: "5.0",
+    count: 2,
+    platform: "Google",
+  },
+} as const;

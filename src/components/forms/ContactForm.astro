@@ -1,0 +1,148 @@
+---
+import Button from '@components/ui/Button.astro';
+import { business } from '@data/business';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+/**
+ * Web3Forms — Remplacer VOTRE_CLE par la clé d'accès Web3Forms.
+ * Créer une clé gratuite sur https://web3forms.com/
+ */
+const WEB3FORMS_KEY = 'VOTRE_CLE';
+---
+
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  class={`space-y-5 ${className}`.trim()}
+  id="contact-form"
+>
+  <!-- Web3Forms config -->
+  <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+  <input type="hidden" name="redirect" value={`${business.url}/merci`} />
+  <input type="hidden" name="from_name" value={business.name} />
+  <input type="hidden" name="subject" value={`Nouveau message depuis ${business.name}`} />
+
+  <!-- Honeypot anti-spam -->
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
+
+  <!-- Nom -->
+  <div>
+    <label for="name" class="block text-sm font-medium text-secondary-900 mb-1.5">
+      Votre nom <span class="text-red-500" aria-hidden="true">*</span>
+      <span class="sr-only">(obligatoire)</span>
+    </label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      autocomplete="name"
+      class="w-full px-4 py-3 bg-neutral-50 border border-neutral-300 rounded-DEFAULT text-secondary-900 placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none transition-colors min-h-[44px]"
+      placeholder="Jean Dupont"
+    />
+  </div>
+
+  <!-- Téléphone ou email -->
+  <div>
+    <label for="contact-info" class="block text-sm font-medium text-secondary-900 mb-1.5">
+      Votre téléphone ou email <span class="text-red-500" aria-hidden="true">*</span>
+      <span class="sr-only">(obligatoire)</span>
+    </label>
+    <input
+      type="text"
+      id="contact-info"
+      name="contact"
+      required
+      class="w-full px-4 py-3 bg-neutral-50 border border-neutral-300 rounded-DEFAULT text-secondary-900 placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none transition-colors min-h-[44px]"
+      placeholder="06 12 34 56 78 ou email@exemple.fr"
+    />
+  </div>
+
+  <!-- Message -->
+  <div>
+    <label for="message" class="block text-sm font-medium text-secondary-900 mb-1.5">
+      Décrivez votre projet <span class="text-red-500" aria-hidden="true">*</span>
+      <span class="sr-only">(obligatoire)</span>
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      required
+      rows={5}
+      class="w-full px-4 py-3 bg-neutral-50 border border-neutral-300 rounded-DEFAULT text-secondary-900 placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none transition-colors resize-y"
+      placeholder="Rénovation tableau électrique, installation prises dans cuisine, dépannage..."
+    ></textarea>
+  </div>
+
+  <!-- Mention RGPD -->
+  <p class="text-xs text-neutral-500 leading-relaxed">
+    En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre
+    <a href="/politique-confidentialite" class="underline hover:text-primary-600 transition-colors">politique de confidentialité</a>.
+    Vos informations sont uniquement utilisées pour répondre à votre demande et ne sont jamais partagées avec des tiers.
+  </p>
+
+  <!-- Submit -->
+  <div>
+    <Button type="submit" size="lg" class="w-full sm:w-auto">
+      Envoyer ma demande de devis
+    </Button>
+  </div>
+
+  <!-- Status message -->
+  <div id="form-status" class="hidden" role="alert" aria-live="polite"></div>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!status) return;
+
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const originalText = submitBtn?.textContent || '';
+
+    // Loading state
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi en cours...';
+    }
+    status.className = 'hidden';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Redirect to /merci
+        window.location.href = '/merci';
+      } else {
+        status.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.';
+        status.className = 'text-sm text-red-600 bg-red-50 border border-red-200 rounded-DEFAULT p-3';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      }
+    } catch {
+      status.textContent = 'Erreur de connexion. Veuillez réessayer ou nous appeler au 06 63 62 78 71.';
+      status.className = 'text-sm text-red-600 bg-red-50 border border-red-200 rounded-DEFAULT p-3';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    }
+  });
+</script>

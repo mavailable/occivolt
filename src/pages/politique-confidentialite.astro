@@ -1,0 +1,162 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
+import { business } from '@data/business';
+---
+
+<BaseLayout
+  title="Politique de confidentialité — Occi'Volt Électricité"
+  description="Politique de confidentialité et protection des données personnelles du site Occi'Volt Électricité."
+>
+  <Header />
+
+  <main class="py-16 md:py-20">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 mb-10">
+        Politique de confidentialité
+      </h1>
+
+      <div class="prose prose-neutral max-w-none space-y-8 text-neutral-700 leading-relaxed">
+
+        <!-- Responsable -->
+        <section>
+          <h2 class="text-xl font-heading font-bold text-secondary-900 mb-3">Responsable du traitement</h2>
+          <p>
+            Le responsable du traitement des données personnelles collectées sur ce site est&nbsp;:
+          </p>
+          <ul class="list-none space-y-1 mt-3 text-sm">
+            <li><strong>{business.name}</strong></li>
+            <li>Verdun-en-Lauragais, {business.address.postalCode} {business.address.city}</li>
+            <li>Email : <a href={`mailto:${business.email}`} class="text-primary-600 hover:text-primary-700">{business.email}</a></li>
+            <li>Téléphone : <a href={`tel:${business.phone}`} class="text-primary-600 hover:text-primary-700">{business.phoneDisplay}</a></li>
+          </ul>
+        </section>
+
+        <!-- Données collectées -->
+        <section>
+          <h2 class="text-xl font-heading font-bold text-secondary-900 mb-3">Données personnelles collectées</h2>
+          <p>
+            Les données personnelles collectées via le formulaire de contact de ce site sont les suivantes&nbsp;:
+          </p>
+          <ul class="list-disc pl-5 mt-3 space-y-1 text-sm">
+            <li>Nom</li>
+            <li>Adresse email et/ou numéro de téléphone</li>
+            <li>Contenu du message (description du projet)</li>
+          </ul>
+          <p class="mt-3">
+            Ces données sont collectées uniquement lorsque vous remplissez et soumettez volontairement le formulaire de contact.
+          </p>
+        </section>
+
+        <!-- Finalité -->
+        <section>
+          <h2 class="text-xl font-heading font-bold text-secondary-900 mb-3">Finalité du traitement</h2>
+          <p>
+            Vos données personnelles sont collectées et traitées dans le but exclusif de&nbsp;:
+          </p>
+          <ul class="list-disc pl-5 mt-3 space-y-1 text-sm">
+            <li>Répondre à votre demande de contact ou de devis</li>
+            <li>Vous recontacter dans le cadre de votre projet électrique</li>
+          </ul>
+          <p class="mt-3">
+            Vos données ne sont <strong>jamais utilisées à des fins commerciales, publicitaires ou de prospection non sollicitée</strong>.
+          </p>
+        </section>
+
+        <!-- Base légale -->
+        <section>
+          <h2 class="text-xl font-heading font-bold text-secondary-900 mb-3">Base légale</h2>
+          <p>
+            Le traitement de vos données repose sur votre <strong>consentement</strong>, exprimé par la soumission volontaire du formulaire de contact (article 6.1.a du RGPD).
+          </p>
+        </section>
+
+        <!-- Destinataires -->
+        <section>
+          <h2 class="text-xl font-heading font-bold text-secondary-900 mb-3">Destinataires des données</h2>
+          <p>
+            Vos données sont transmises exclusivement à&nbsp;:
+          </p>
+          <ul class="list-disc pl-5 mt-3 space-y-1 text-sm">
+            <li><strong>{business.name}</strong> — pour le traitement de votre demande</li>
+            <li><strong>Web3Forms</strong> (service de traitement de formulaires) — qui transfère les données par email sans les stocker. <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Politique de confidentialité de Web3Forms</a></li>
+          </ul>
+          <p class="mt-3">
+            Vos données ne sont <strong>jamais vendues, louées ou partagées</strong> avec des tiers à des fins commerciales.
+          </p>
+        </section>
+
+        <!-- Durée de conservation -->
+        <section>
+          <h2 class="text-xl font-heading font-bold text-secondary-900 mb-3">Durée de conservation</h2>
+          <p>
+            Vos données personnelles sont conservées pour une durée maximale de <strong>3 ans</strong> à compter de votre dernier contact, conformément aux recommandations de la CNIL.
+          </p>
+          <p>
+            Au-delà de cette période, vos données sont supprimées de manière définitive.
+          </p>
+        </section>
+
+        <!-- Droits -->
+        <section>
+          <h2 class="text-xl font-heading font-bold text-secondary-900 mb-3">Vos droits</h2>
+          <p>
+            Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez des droits suivants concernant vos données personnelles&nbsp;:
+          </p>
+          <ul class="list-disc pl-5 mt-3 space-y-1 text-sm">
+            <li><strong>Droit d'accès</strong>&nbsp;: obtenir la confirmation du traitement de vos données et en demander une copie</li>
+            <li><strong>Droit de rectification</strong>&nbsp;: demander la correction de données inexactes ou incomplètes</li>
+            <li><strong>Droit de suppression</strong>&nbsp;: demander l'effacement de vos données personnelles</li>
+            <li><strong>Droit à la portabilité</strong>&nbsp;: recevoir vos données dans un format structuré et lisible par machine</li>
+            <li><strong>Droit d'opposition</strong>&nbsp;: vous opposer au traitement de vos données</li>
+            <li><strong>Droit de retrait du consentement</strong>&nbsp;: retirer votre consentement à tout moment</li>
+          </ul>
+          <p class="mt-3">
+            Pour exercer ces droits, contactez-nous par email à <a href={`mailto:${business.email}`} class="text-primary-600 hover:text-primary-700">{business.email}</a> ou par courrier à l'adresse indiquée ci-dessus.
+          </p>
+          <p>
+            En cas de litige, vous pouvez introduire une réclamation auprès de la CNIL&nbsp;: <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">www.cnil.fr</a>.
+          </p>
+        </section>
+
+        <!-- Cookies -->
+        <section>
+          <h2 class="text-xl font-heading font-bold text-secondary-900 mb-3">Cookies</h2>
+          <p>
+            Ce site utilise <strong>Cloudflare Web Analytics</strong> pour mesurer l'audience de manière anonyme. Ce service fonctionne <strong>sans cookies</strong> et ne collecte aucune donnée personnelle. Aucun traceur n'est déposé sur votre appareil.
+          </p>
+          <p>
+            En conséquence, ce site ne nécessite pas de bannière de consentement aux cookies.
+          </p>
+          <p>
+            Pour en savoir plus&nbsp;: <a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Cloudflare Web Analytics</a>.
+          </p>
+        </section>
+
+        <!-- Sécurité -->
+        <section>
+          <h2 class="text-xl font-heading font-bold text-secondary-900 mb-3">Sécurité des données</h2>
+          <p>
+            Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, perte, altération ou divulgation. Le site est servi en HTTPS (certificat SSL/TLS) pour garantir la confidentialité des échanges.
+          </p>
+        </section>
+
+        <!-- Modifications -->
+        <section>
+          <h2 class="text-xl font-heading font-bold text-secondary-900 mb-3">Modifications de la politique</h2>
+          <p>
+            Cette politique de confidentialité peut être mise à jour à tout moment. En cas de modification substantielle, la date de mise à jour sera actualisée ci-dessous.
+          </p>
+        </section>
+
+        <!-- Date de mise à jour -->
+        <p class="text-sm text-neutral-400 pt-4 border-t border-neutral-200">
+          Dernière mise à jour&nbsp;: mars 2026
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
