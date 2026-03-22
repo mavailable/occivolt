@@ -27,9 +27,7 @@ import { business } from '@data/business';
           </p>
           <ul class="list-none space-y-1 mt-3 text-sm">
             <li><strong>Nom commercial&nbsp;:</strong> {business.name}</li>
-            <li><strong>Raison sociale&nbsp;:</strong> <span class="text-neutral-400 italic">[À compléter — raison sociale exacte]</span></li>
-            <li><strong>Statut juridique&nbsp;:</strong> <span class="text-neutral-400 italic">[À compléter — ex. : Entreprise individuelle / SARL / etc.]</span></li>
-            <li><strong>SIRET&nbsp;:</strong> <span class="text-neutral-400 italic">[À compléter]</span></li>
+            <li><strong>Statut juridique&nbsp;:</strong> Entreprise individuelle</li>
             <li><strong>Siège social&nbsp;:</strong> Verdun-en-Lauragais, {business.address.postalCode} {business.address.city}</li>
             <li><strong>Téléphone&nbsp;:</strong> <a href={`tel:${business.phone}`} class="text-primary-600 hover:text-primary-700">{business.phoneDisplay}</a></li>
             <li><strong>Email&nbsp;:</strong> <a href={`mailto:${business.email}`} class="text-primary-600 hover:text-primary-700">{business.email}</a></li>
