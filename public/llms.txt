@@ -15,7 +15,7 @@
 
 - Installation électrique : tableau, câblage, prises, éclairage intérieur/extérieur, spots encastrés
 - Dépannage et rénovation : intervention rapide (rayon 30 km), remplacement de tableaux, remise aux normes
-- Mise en conformité : diagnostic, norme NF C 15-100, compteurs Linky
+- Mise en conformité : diagnostic, norme NF C 15-100, remplacement composants obsolètes
 - Portails électriques : motorisation, automatisation, interphone
 - Bornes de recharge IRVE : installation à domicile (prochainement)
 
