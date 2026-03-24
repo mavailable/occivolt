@@ -8,8 +8,8 @@
 
 ## Pages principales
 
-- [Accueil](https://occi-volt.fr/): Présentation des services, témoignages clients, formulaire de demande de devis gratuit.
-- [Mentions légales](https://occi-volt.fr/mentions-legales): Informations légales et politique de confidentialité.
+- [Accueil](https://occivolt.pages.dev/): Présentation des services, témoignages clients, formulaire de demande de devis gratuit.
+- [Mentions légales](https://occivolt.pages.dev/mentions-legales): Informations légales et politique de confidentialité.
 
 ## Services proposés
 

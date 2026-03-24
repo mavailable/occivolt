@@ -11,7 +11,7 @@ export const business = {
   phone: "+33663627871",
   phoneDisplay: "06 63 62 78 71",
   email: "occivolt@gmail.com",
-  url: "https://occi-volt.fr",
+  url: "https://occivolt.pages.dev",
   address: {
     street: "Verdun-en-Lauragais",
     city: "Castelnaudary",
