@@ -3,10 +3,13 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://occivolt.pages.dev',
+  site: 'https://occi-volt.fr',
   output: 'static',
   integrations: [
-    sitemap({ i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR' } } }),
+    sitemap({
+      filter: (page) => !page.includes('/merci'),
+      i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR' } },
+    }),
   ],
   compressHTML: true,
   vite: {

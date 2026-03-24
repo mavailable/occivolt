@@ -1,4 +1,6 @@
 ---
+import { business } from '@data/business';
+
 const faqs = [
   {
     question: "Quelle est votre zone d'intervention ?",
@@ -10,7 +12,7 @@ const faqs = [
   },
   {
     question: "Quels sont vos horaires ?",
-    answer: "Je suis disponible du lundi au vendredi, de 7h30 à 17h00. En cas de dépannage urgent, n'hésitez pas à me contacter par téléphone au 06 63 62 78 71 — je fais toujours mon possible pour intervenir rapidement.",
+    answer: `Je suis disponible du lundi au vendredi, de 7h30 à 17h00. En cas de dépannage urgent, n'hésitez pas à me contacter par téléphone au ${business.phoneDisplay} — je fais toujours mon possible pour intervenir rapidement.`,
   },
   {
     question: "Quels types de travaux prenez-vous en charge ?",

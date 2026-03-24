@@ -71,24 +71,20 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </a>
     <slot />
 
-    <!-- Cloudflare Web Analytics (remplacer VOTRE_TOKEN en prod) -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "VOTRE_TOKEN"}'></script>
+    <!-- Umami Analytics (sans cookies — pas de bannière nécessaire) -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="93ebe970-e491-4805-b489-03236dcfa8b2"></script>
 
-    <!-- Événements de conversion -->
+    <!-- Événements de conversion (Umami) -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('a[href^="tel:"]').forEach(link => {
           link.addEventListener('click', () => {
-            if (typeof navigator.sendBeacon === 'function') {
-              navigator.sendBeacon('/cdn-cgi/rum', JSON.stringify({ event: 'phone_click' }));
-            }
+            if (typeof umami !== 'undefined') umami.track('phone_click');
           });
         });
         document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
           link.addEventListener('click', () => {
-            if (typeof navigator.sendBeacon === 'function') {
-              navigator.sendBeacon('/cdn-cgi/rum', JSON.stringify({ event: 'email_click' }));
-            }
+            if (typeof umami !== 'undefined') umami.track('email_click');
           });
         });
       });

@@ -12,12 +12,13 @@ const { class: className = '' } = Astro.props;
  * Web3Forms — Remplacer VOTRE_CLE par la clé d'accès Web3Forms.
  * Créer une clé gratuite sur https://web3forms.com/
  */
-const WEB3FORMS_KEY = 'VOTRE_CLE';
+const WEB3FORMS_KEY = 'c0bd1321-2868-459f-9002-4924bc8553fe';
 ---
 
 <form
   action="https://api.web3forms.com/submit"
   method="POST"
+  data-phone={business.phoneDisplay}
   class={`space-y-5 ${className}`.trim()}
   id="contact-form"
 >
@@ -80,7 +81,7 @@ const WEB3FORMS_KEY = 'VOTRE_CLE';
   </div>
 
   <!-- Mention RGPD -->
-  <p class="text-xs text-neutral-500 leading-relaxed">
+  <p class="text-xs text-neutral-600 leading-relaxed">
     En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre
     <a href="/politique-confidentialite" class="underline hover:text-primary-600 transition-colors">politique de confidentialité</a>.
     Vos informations sont uniquement utilisées pour répondre à votre demande et ne sont jamais partagées avec des tiers.
@@ -137,7 +138,7 @@ const WEB3FORMS_KEY = 'VOTRE_CLE';
         }
       }
     } catch {
-      status.textContent = 'Erreur de connexion. Veuillez réessayer ou nous appeler au 06 63 62 78 71.';
+      status.textContent = `Erreur de connexion. Veuillez réessayer ou nous appeler au ${form.dataset.phone}.`;
       status.className = 'text-sm text-red-600 bg-red-50 border border-red-200 rounded-DEFAULT p-3';
       if (submitBtn) {
         submitBtn.disabled = false;

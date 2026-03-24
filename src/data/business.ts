@@ -40,7 +40,7 @@ export const business = {
   social: {
     instagram: "",
     facebook: "",
-    googleBusiness: "https://maps.app.goo.gl/occivolt",
+    googleBusiness: "https://www.google.com/search?q=Occi%27Volt+Electricit%C3%A9&si=AL3DRZGNtcdgKOqVhotcr-UG2kkYpwR2WO4qu3O00NmpwBmLneGp3eod73vuzkQQ6E33AxetHFQMkHfKSQ9y3si6gevohW4uBP1eA7FY80_QnWUh5NScwvo2StiPOikfrQvGkBhN-Xts",
   },
   seo: {
     defaultTitle: "Occi'Volt — Électricien à Castelnaudary | Devis gratuit",

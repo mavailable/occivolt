@@ -46,4 +46,10 @@ import Button from '@components/ui/Button.astro';
   </main>
 
   <Footer />
+
+  <script>
+    if (typeof navigator.sendBeacon === 'function') {
+      navigator.sendBeacon('/cdn-cgi/rum', JSON.stringify({ event: '404_error', path: window.location.pathname }));
+    }
+  </script>
 </BaseLayout>
