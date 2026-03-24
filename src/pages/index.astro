@@ -21,7 +21,7 @@ const electricianSchema = {
   "name": business.name,
   "legalName": business.legalName,
   "image": `${business.url}/images/og-image.jpg`,
-  "logo": `${business.url}/favicon.svg`,
+  "logo": `${business.url}/images/logo-occivolt.webp`,
   "description": business.description,
   "url": business.url,
   "telephone": business.phone,
@@ -131,7 +131,7 @@ const websiteSchema = {
   "publisher": {
     "@type": "Organization",
     "name": business.name,
-    "logo": { "@type": "ImageObject", "url": `${business.url}/favicon.svg` },
+    "logo": { "@type": "ImageObject", "url": `${business.url}/images/logo-occivolt.webp` },
   },
 };
 ---

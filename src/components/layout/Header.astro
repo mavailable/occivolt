@@ -14,12 +14,8 @@ const navLinks = [
 <header class="sticky top-0 z-50 bg-secondary-950/95 backdrop-blur-sm border-b border-secondary-800">
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16" aria-label="Navigation principale">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 text-white font-heading font-bold text-lg" aria-label={`${business.shortName} — Accueil`}>
-      <svg class="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect width="32" height="32" rx="6" fill="#1A1C1F"/>
-        <path d="M18 4L10 18h5l-1 10 8-14h-5l1-10z" fill="#F59E0B" stroke="#3D9A47" stroke-width="1"/>
-      </svg>
-      <span class="hidden sm:inline">{business.shortName}</span>
+    <a href="/" class="flex items-center gap-2" aria-label={`${business.shortName} — Accueil`}>
+      <img src="/images/logo-occivolt.webp" alt={`Logo ${business.name}`} class="h-10 w-auto" />
     </a>
 
     <!-- Navigation desktop -->

@@ -24,11 +24,7 @@ const legalLinks = [
       <!-- Colonne 1 : Infos -->
       <div>
         <div class="flex items-center gap-2 mb-4">
-          <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="32" height="32" rx="6" fill="#1A1C1F"/>
-            <path d="M18 4L10 18h5l-1 10 8-14h-5l1-10z" fill="#F59E0B" stroke="#3D9A47" stroke-width="1"/>
-          </svg>
-          <span class="font-heading font-bold text-white text-lg">{business.shortName}</span>
+          <img src="/images/logo-occivolt.webp" alt={`Logo ${business.name}`} class="h-10 w-auto" />
         </div>
         <p class="text-sm leading-relaxed mb-4">
           {business.description}
