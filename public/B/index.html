@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Occi'Volt — Option B : Lime Électrique + Variantes Logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* =====================================================
+     PALETTE B — LIME ÉLECTRIQUE
+     accent-300: #BEF264 | accent-400: #A3E635
+     accent-500: #84CC16 | accent-600: #65A30D
+  ===================================================== */
+  :root {
+    --accent-300: #BEF264;
+    --accent-400: #A3E635;
+    --accent-500: #84CC16;
+    --accent-600: #65A30D;
+    --primary-600: #2E7B37;
+    --primary-700: #26632D;
+    --bg-main: #1A1C1F;
+    --bg-card: #22252A;
+    --bg-elevated: #2C2F35;
+    --border-subtle: #2E3238;
+    --border-default: #373C44;
+    --neutral-200: #E5E5E5;
+    --neutral-300: #D4D4D4;
+    --neutral-400: #A3A3A3;
+    --neutral-500: #737373;
+    --neutral-600: #525252;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-main);
+    color: var(--neutral-200);
+    min-height: 100vh;
+    padding-bottom: 80px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* ── FEEDBACK BANNER ── */
+  .feedback-banner {
+    position: sticky;
+    top: 0;
+    z-index: 300;
+    background: #0F1012;
+    border-bottom: 1px solid rgba(163,230,53,0.20);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .banner-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .option-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--accent-300);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+  .option-title span {
+    color: var(--neutral-500);
+    font-weight: 500;
+  }
+
+  .hex-codes {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hex-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 2px 9px 2px 5px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 10.5px;
+    color: var(--neutral-300);
+  }
+  .hex-pill .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .hex-pill .lbl {
+    color: var(--neutral-600);
+    font-size: 9.5px;
+  }
+
+  /* ── TAB BUTTONS ── */
+  .logo-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 3px;
+  }
+  .tab-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--neutral-400);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 7px;
+    transition: background 0.18s, color 0.18s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.06);
+  }
+  .tab-btn.active {
+    background: var(--accent-500);
+    color: #fff;
+  }
+
+  /* ── SITE HEADER ── */
+  .site-header {
+    position: sticky;
+    top: 66px;
+    z-index: 200;
+    background: rgba(26, 28, 31, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .logo-glass-pill {
+    display: none;
+    align-items: center;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 6px 14px;
+  }
+  .logo-glass-pill.visible { display: flex; }
+
+  .logo-plain {
+    display: none;
+    align-items: center;
+  }
+  .logo-plain.visible { display: flex; }
+
+  .logo-area img {
+    height: 38px;
+    width: auto;
+  }
+
+  .logo-fallback {
+    display: none;
+    height: 38px;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-fallback.visible { display: flex; }
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo-icon svg { width: 20px; height: 20px; }
+  .logo-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: 18px; color: #fff;
+  }
+  .logo-text em { font-style: normal; color: var(--accent-400); }
+
+  nav {
+    display: flex; align-items: center; gap: 6px;
+    flex: 1; justify-content: center;
+  }
+  nav a {
+    color: var(--neutral-400); text-decoration: none;
+    font-size: 14px; font-weight: 500; padding: 6px 12px;
+    border-radius: 6px; transition: color 0.2s;
+  }
+  nav a:hover { color: #fff; }
+
+  .header-cta {
+    display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+  }
+  .header-phone {
+    display: flex; align-items: center; gap: 6px;
+    color: var(--neutral-300); font-size: 13px; font-weight: 600;
+    text-decoration: none;
+  }
+  .header-phone svg { width: 14px; height: 14px; color: var(--accent-400); }
+  .btn-devis-header {
+    background: var(--primary-600); color: #fff;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
+    padding: 9px 18px; border-radius: 8px; border: none; cursor: pointer;
+    text-decoration: none; display: inline-block; transition: background 0.2s;
+  }
+  .btn-devis-header:hover { background: var(--primary-700); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--bg-main);
+    padding: 80px 24px 72px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -80px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(132,204,22,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -60px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(46,123,55,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 420px;
+    gap: 64px; align-items: center;
+    position: relative; z-index: 1;
+  }
+
+  .tag-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(163,230,53,0.10);
+    border: 1px solid rgba(163,230,53,0.30);
+    border-radius: 100px; padding: 6px 14px; margin-bottom: 28px;
+  }
+  .tag-badge .pulse-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent-400);
+    animation: pulse-anim 2s ease-in-out infinite; flex-shrink: 0;
+  }
+  @keyframes pulse-anim {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.85); }
+  }
+  .tag-badge .tag-text {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--accent-300);
+  }
+
+  .hero-h1 {
+    font-size: clamp(32px, 4vw, 50px); font-weight: 800;
+    color: #fff; line-height: 1.12; letter-spacing: -0.025em;
+    margin-bottom: 24px;
+  }
+  .hero-h1 .highlight {
+    position: relative; display: inline-block; color: var(--accent-400);
+  }
+  .hero-h1 .highlight::after {
+    content: ''; position: absolute; bottom: 2px; left: 0;
+    width: 100%; height: 6px;
+    background: var(--accent-500); opacity: 0.2;
+    border-radius: 3px; transform: skewX(-4deg);
+  }
+
+  .hero-subtitle {
+    font-size: 17px; color: var(--neutral-300);
+    line-height: 1.65; margin-bottom: 36px; max-width: 520px;
+  }
+
+  .cta-row {
+    display: flex; align-items: center; gap: 12px;
+    flex-wrap: wrap; margin-bottom: 36px;
+  }
+  .btn-primary-hero {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--primary-600); color: #fff;
+    font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700;
+    padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
+    text-decoration: none; transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 20px rgba(46,123,55,0.35);
+  }
+  .btn-primary-hero:hover { background: var(--primary-700); transform: translateY(-1px); }
+  .btn-primary-hero svg { width: 16px; height: 16px; }
+
+  .btn-secondary-hero {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: #fff;
+    font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+    padding: 13px 22px; border-radius: 10px;
+    border: 1.5px solid var(--neutral-600); cursor: pointer;
+    text-decoration: none; transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary-hero:hover { border-color: var(--neutral-400); }
+  .btn-secondary-hero svg { width: 16px; height: 16px; color: var(--accent-400); }
+
+  .trust-badges { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--neutral-400); }
+  .check-circle {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: rgba(163,230,53,0.12); border: 1px solid rgba(163,230,53,0.3);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .check-circle svg { width: 11px; height: 11px; }
+
+  .photo-card {
+    background: var(--bg-card); border: 1px solid var(--border-default);
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+  }
+  .photo-placeholder {
+    width: 100%; height: 280px;
+    background: linear-gradient(135deg, #2a2d33 0%, #1f2228 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px; color: var(--neutral-600); font-size: 14px;
+  }
+  .photo-placeholder svg { width: 48px; height: 48px; opacity: 0.4; }
+  .photo-info { padding: 20px; }
+  .stars-row { display: flex; align-items: center; gap: 3px; margin-bottom: 10px; }
+  .stars-row svg { width: 18px; height: 18px; fill: var(--accent-400); }
+  .rating-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 3px;
+  }
+  .rating-sub { font-size: 13px; color: var(--neutral-400); margin-bottom: 16px; }
+  .photo-card-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .card-badge {
+    background: rgba(163,230,53,0.08); border: 1px solid rgba(163,230,53,0.2);
+    border-radius: 6px; padding: 5px 10px;
+    font-size: 11px; font-weight: 600; color: var(--accent-300);
+  }
+  .card-badge-neutral {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle);
+    border-radius: 6px; padding: 5px 10px;
+    font-size: 11px; font-weight: 600; color: var(--neutral-400);
+  }
+
+  /* ── SOCIAL PROOF STRIP ── */
+  .social-strip {
+    background: var(--bg-main);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0 24px;
+  }
+  .social-strip-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: stretch;
+    justify-content: space-around;
+  }
+  .strip-stat {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 28px 24px; gap: 6px;
+    flex: 1; border-right: 1px solid var(--border-subtle);
+  }
+  .strip-stat:last-child { border-right: none; }
+  .strip-top { display: flex; align-items: baseline; gap: 2px; }
+  .strip-number {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 32px; font-weight: 800; color: #fff; line-height: 1;
+  }
+  .strip-suffix {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 22px; font-weight: 700; color: var(--accent-400); line-height: 1;
+  }
+  .strip-stars { display: flex; gap: 2px; margin-bottom: 2px; }
+  .strip-stars svg { width: 14px; height: 14px; fill: var(--accent-400); }
+  .strip-label { font-size: 13px; color: var(--neutral-500); text-align: center; }
+
+  /* ── STICKY MOBILE CTA ── */
+  .mobile-cta-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 400;
+    background: rgba(26,28,31,0.97);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border-subtle);
+    padding: 12px 16px;
+    display: flex; gap: 10px; align-items: center;
+  }
+  .mobile-phone-btn {
+    width: 50px; height: 50px; border-radius: 10px;
+    background: var(--primary-600);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; border: none; cursor: pointer; transition: background 0.2s;
+  }
+  .mobile-phone-btn:hover { background: var(--primary-700); }
+  .mobile-phone-btn svg { width: 22px; height: 22px; color: #fff; }
+  .mobile-devis-btn {
+    flex: 1; height: 50px; background: var(--accent-600); color: #fff;
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+    border-radius: 10px; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; transition: background 0.2s;
+  }
+  .mobile-devis-btn:hover { background: var(--accent-500); }
+  .mobile-devis-btn svg { width: 16px; height: 16px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-right { max-width: 480px; margin: 0 auto; }
+    nav, .header-phone { display: none; }
+    .social-strip-inner { flex-wrap: wrap; }
+    .strip-stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--border-subtle); }
+    .strip-stat:last-child { border-bottom: none; }
+  }
+  @media (max-width: 600px) {
+    .hex-codes { display: none; }
+    .feedback-banner { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     FEEDBACK BANNER
+════════════════════════════════════════════ -->
+<div class="feedback-banner" id="feedbackBanner">
+  <div class="banner-left">
+    <span class="option-title">Option B — Lime Électrique &nbsp;<span>· Choisissez un traitement logo ↓</span></span>
+    <div class="hex-codes">
+      <span class="hex-pill"><span class="dot" style="background:#BEF264;"></span><span class="lbl">300</span>#BEF264</span>
+      <span class="hex-pill"><span class="dot" style="background:#A3E635;"></span><span class="lbl">400</span>#A3E635</span>
+      <span class="hex-pill"><span class="dot" style="background:#84CC16;"></span><span class="lbl">500</span>#84CC16</span>
+      <span class="hex-pill"><span class="dot" style="background:#65A30D;"></span><span class="lbl">600</span>#65A30D</span>
+    </div>
+  </div>
+  <div class="logo-tabs">
+    <button class="tab-btn" id="tab1" onclick="switchLogo(1)">Logo + fond glass</button>
+    <button class="tab-btn" id="tab2" onclick="switchLogo(2)">Logo blanc</button>
+    <button class="tab-btn active" id="tab3" onclick="switchLogo(3)">Logo vert clair</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SITE HEADER
+════════════════════════════════════════════ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+
+    <div class="logo-area" id="logoArea">
+      <div class="logo-glass-pill" id="logoGlass">
+        <img id="logoImgGlass" src="logo-v1-original.webp" alt="Occi'Volt"
+             onerror="document.getElementById('logoFallback').classList.add('visible'); document.getElementById('logoGlass').classList.remove('visible');">
+      </div>
+      <div class="logo-plain" id="logoPlain">
+        <img id="logoImgPlain" src="logo-v4-light-green.webp" alt="Occi'Volt"
+             onerror="document.getElementById('logoFallback').classList.add('visible'); document.getElementById('logoPlain').classList.remove('visible');">
+      </div>
+      <div class="logo-fallback" id="logoFallback">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L4.5 13.5H10L9 22L19.5 10.5H14L13 2Z" fill="#fff"/>
+          </svg>
+        </div>
+        <span class="logo-text">Occi'<em>Volt</em></span>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">Services</a>
+      <a href="#">Réalisations</a>
+      <a href="#">Zone d'intervention</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="header-cta">
+      <a href="#" class="header-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3A2 2 0 017 2a12.24 12.24 0 00.57 2.57 2 2 0 01-.45 2.11L6.23 7.57a16 16 0 006.2 6.2l.89-.89a2 2 0 012.11-.45A12.24 12.24 0 0018 13a2 2 0 011.92 1.92z"/></svg>
+        06 63 62 78 71
+      </a>
+      <a href="#" class="btn-devis-header">Devis gratuit</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-left">
+      <div class="tag-badge">
+        <span class="pulse-dot"></span>
+        <span class="tag-text">Électricien dédié aux particuliers</span>
+      </div>
+
+      <h1 class="hero-h1">
+        Votre électricien à<br>
+        <span class="highlight">Castelnaudary</span><br>
+        et dans tout le Lauragais
+      </h1>
+
+      <p class="hero-subtitle">
+        Installation, rénovation, dépannage et mise en conformité. Un artisan réactif, à l'écoute, et des devis gratuits sans engagement.
+      </p>
+
+      <div class="cta-row">
+        <a href="#" class="btn-primary-hero">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          Demander mon devis gratuit
+        </a>
+        <a href="tel:0663627871" class="btn-secondary-hero">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3A2 2 0 017 2a12.24 12.24 0 00.57 2.57 2 2 0 01-.45 2.11L6.23 7.57a16 16 0 006.2 6.2l.89-.89a2 2 0 012.11-.45A12.24 12.24 0 0018 13a2 2 0 011.92 1.92z"/></svg>
+          06 63 62 78 71
+        </a>
+      </div>
+
+      <div class="trust-badges">
+        <div class="trust-item">
+          <div class="check-circle">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#A3E635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg>
+          </div>
+          Devis gratuit
+        </div>
+        <div class="trust-item">
+          <div class="check-circle">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#A3E635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg>
+          </div>
+          Intervention rapide
+        </div>
+        <div class="trust-item">
+          <div class="check-circle">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#A3E635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg>
+          </div>
+          Norme NF C 15-100
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Photo du technicien / chantier</span>
+        </div>
+        <div class="photo-info">
+          <div class="stars-row">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="rating-text">5.0 / 5 sur Google</div>
+          <div class="rating-sub">Avis clients vérifiés</div>
+          <div class="photo-card-badges">
+            <span class="card-badge">Certifié RGE</span>
+            <span class="card-badge">CONSUEL</span>
+            <span class="card-badge-neutral">Castelnaudary (11)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SOCIAL PROOF STRIP
+════════════════════════════════════════════ -->
+<div class="social-strip">
+  <div class="social-strip-inner">
+
+    <div class="strip-stat">
+      <div class="strip-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="strip-top">
+        <span class="strip-number">5.0</span>
+        <span class="strip-suffix">/5</span>
+      </div>
+      <div class="strip-label">Note Google</div>
+    </div>
+
+    <div class="strip-stat">
+      <div class="strip-top">
+        <span class="strip-number">1</span>
+        <span class="strip-suffix">+</span>
+      </div>
+      <div class="strip-label">Ans d'expérience</div>
+    </div>
+
+    <div class="strip-stat">
+      <div class="strip-top">
+        <span class="strip-number">50</span>
+        <span class="strip-suffix">&thinsp;km</span>
+      </div>
+      <div class="strip-label">Rayon d'intervention</div>
+    </div>
+
+    <div class="strip-stat">
+      <div class="strip-top">
+        <span class="strip-number">100</span>
+        <span class="strip-suffix">%</span>
+      </div>
+      <div class="strip-label">Devis gratuits</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     STICKY MOBILE CTA BAR
+════════════════════════════════════════════ -->
+<div class="mobile-cta-bar">
+  <button class="mobile-phone-btn" aria-label="Appeler">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3A2 2 0 017 2a12.24 12.24 0 00.57 2.57 2 2 0 01-.45 2.11L6.23 7.57a16 16 0 006.2 6.2l.89-.89a2 2 0 012.11-.45A12.24 12.24 0 0018 13a2 2 0 011.92 1.92z"/></svg>
+  </button>
+  <button class="mobile-devis-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+    Demander mon devis gratuit
+  </button>
+</div>
+
+<script>
+  var logoSources = {
+    1: 'logo-v1-original.webp',
+    2: 'logo-v3-blanc.webp',
+    3: 'logo-v4-light-green.webp'
+  };
+
+  function switchLogo(tab) {
+    document.getElementById('tab1').classList.remove('active');
+    document.getElementById('tab2').classList.remove('active');
+    document.getElementById('tab3').classList.remove('active');
+    document.getElementById('tab' + tab).classList.add('active');
+
+    var glass = document.getElementById('logoGlass');
+    var plain = document.getElementById('logoPlain');
+
+    if (tab === 1) {
+      glass.classList.add('visible');
+      plain.classList.remove('visible');
+      document.getElementById('logoImgGlass').src = logoSources[1];
+    } else {
+      glass.classList.remove('visible');
+      plain.classList.add('visible');
+      document.getElementById('logoImgPlain').src = logoSources[tab];
+    }
+  }
+
+  function updateHeaderTop() {
+    var bannerH = document.getElementById('feedbackBanner').offsetHeight;
+    document.getElementById('siteHeader').style.top = bannerH + 'px';
+  }
+
+  switchLogo(3);
+  updateHeaderTop();
+  window.addEventListener('resize', updateHeaderTop);
+</script>
+</body>
+</html>
