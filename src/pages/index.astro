@@ -19,8 +19,9 @@ const electricianSchema = {
   "@context": "https://schema.org",
   "@type": "Electrician",
   "name": business.name,
+  "legalName": business.legalName,
   "image": `${business.url}/images/og-image.jpg`,
-  "logo": `${business.url}/images/logo-occivolt.png`,
+  "logo": `${business.url}/favicon.svg`,
   "description": business.description,
   "url": business.url,
   "telephone": business.phone,
@@ -82,6 +83,11 @@ const electricianSchema = {
     "reviewCount": business.rating.count,
     "bestRating": "5",
   },
+  "sameAs": [
+    business.social.googleBusiness,
+    ...(business.social.facebook ? [business.social.facebook] : []),
+    ...(business.social.instagram ? [business.social.instagram] : []),
+  ].filter(Boolean),
   "review": [
     {
       "@type": "Review",
@@ -120,11 +126,12 @@ const websiteSchema = {
   "@type": "WebSite",
   "name": business.name,
   "url": business.url,
+  "inLanguage": business.lang,
   "description": business.description,
   "publisher": {
     "@type": "Organization",
     "name": business.name,
-    "logo": { "@type": "ImageObject", "url": `${business.url}/images/logo-occivolt.png` },
+    "logo": { "@type": "ImageObject", "url": `${business.url}/favicon.svg` },
   },
 };
 ---

@@ -6,7 +6,7 @@ export default defineConfig({
   site: 'https://occivolt.pages.dev',
   output: 'static',
   integrations: [
-    sitemap({ i18n: { defaultLocale: 'fr' } }),
+    sitemap({ i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR' } } }),
   ],
   compressHTML: true,
   vite: {

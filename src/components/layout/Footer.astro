@@ -69,7 +69,7 @@ const legalLinks = [
           {business.hours.map(h => (
             <li class="flex justify-between">
               <span>{h.day}</span>
-              <span class={h.open === 'Fermé' ? 'text-neutral-500' : ''}>
+              <span class={h.open === 'Fermé' ? 'text-neutral-400' : ''}>
                 {h.open === 'Fermé' ? 'Fermé' : `${h.open} – ${h.close}`}
               </span>
             </li>
@@ -81,7 +81,7 @@ const legalLinks = [
 
   <!-- Barre basse -->
   <div class="border-t border-secondary-800 py-4">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-500">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-400">
       <p>&copy; {currentYear} {business.name} — Tous droits réservés</p>
       <div class="flex items-center gap-4">
         {legalLinks.map(link => (

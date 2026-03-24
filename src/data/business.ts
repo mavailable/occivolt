@@ -1,6 +1,9 @@
 export const business = {
   name: "Occi'Volt Électricité",
+  legalName: "Occi'Volt Électricité",
   shortName: "Occi'Volt",
+  lang: "fr",
+  country: "FR",
   tagline: "Votre électricien à Castelnaudary et dans tout le Lauragais",
   description: "Électricien pour particuliers à Castelnaudary et dans le Lauragais. Installation, rénovation, dépannage, mise en conformité. Devis gratuit, intervention rapide.",
   founder: "Tony",
