@@ -1,14 +1,8 @@
 import { config, fields, collection, singleton } from '@keystatic/core';
 
-const isProd = import.meta.env.PROD;
-
 export default config({
-  storage: isProd
-    ? {
-        kind: 'github',
-        repo: 'mavailable/occivolt',
-      }
-    : { kind: 'local' },
+  storage: { kind: 'cloud' },
+  cloud: { project: 'occivolt/occivolt' },
   ui: {
     brand: { name: "Occi'Volt" },
     navigation: {
