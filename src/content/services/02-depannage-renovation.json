@@ -1,0 +1,10 @@
+{
+  "slug": "depannage-renovation",
+  "title": "Dépannage & rénovation",
+  "number": "02",
+  "badge": "",
+  "description": "Intervention rapide dans un rayon de 30 km. Diagnostic, remplacement de tableaux, remise aux normes.",
+  "photo": "/images/galerie/avant-apres-tableau.webp",
+  "photoAlt": "Avant/après remplacement tableau électrique — Occi'Volt",
+  "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M11.42 15.17l-5.71-5.71a8 8 0 1111.42 0l-5.71 5.71zm0 0L19 21\" />"
+}
