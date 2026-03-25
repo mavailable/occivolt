@@ -8,6 +8,7 @@ const UMAMI_SHARE_URL = 'https://cloud.umami.is/share/YeEqAWtiyvcwUvSQ';
 const GOOGLE_BUSINESS_URL = business.social.googleBusiness;
 const GOOGLE_REVIEW_LINK = 'https://www.google.com/search?q=Occi%27Volt+Electricit%C3%A9+Castelnaudary&ludocid=7189708307294235750#lrd=0x47a5b74e29f21497:0x63c6f99cdef2ac66,3,,,';
 const WEBMASTER_EMAIL = 'marc@marc-muller.com';
+const KEYSTATIC_BASE = `${SITE_URL}/keystatic/branch/main`;
 
 const collections = [
   {
@@ -105,7 +106,7 @@ const singletons = [
               Cliquez sur <strong>Save</strong> — les changements sont en ligne en quelques minutes
             </li>
           </ol>
-          <a href={`${SITE_URL}/keystatic`} target="_blank" rel="noopener noreferrer"
+          <a href={KEYSTATIC_BASE} target="_blank" rel="noopener noreferrer"
             class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-heading font-bold text-sm px-5 py-2.5 rounded-xl transition-colors shadow-sm">
             Modifier mes contenus
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-4.5-6l6 6m-3-9v6h6" /></svg>
@@ -120,7 +121,7 @@ const singletons = [
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {collections.map((col) => (
-              <a href={`${SITE_URL}/keystatic/collection/${col.slug}`} target="_blank" rel="noopener noreferrer"
+              <a href={`${KEYSTATIC_BASE}/collection/${col.slug}`} target="_blank" rel="noopener noreferrer"
                 class="group flex items-start gap-4 bg-white rounded-xl border border-neutral-200 p-5 hover:border-primary-300 hover:shadow-md transition-all">
                 <div class="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary-600 transition-colors">
                   <svg class="w-5 h-5 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -152,7 +153,7 @@ const singletons = [
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {singletons.map((s) => (
-              <a href={`${SITE_URL}/keystatic/singleton/${s.slug}`} target="_blank" rel="noopener noreferrer"
+              <a href={`${KEYSTATIC_BASE}/singleton/${s.slug}`} target="_blank" rel="noopener noreferrer"
                 class="group flex items-start gap-4 bg-white rounded-xl border border-neutral-200 p-5 hover:border-primary-300 hover:shadow-md transition-all">
                 <div class="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary-600 transition-colors">
                   <svg class="w-5 h-5 text-neutral-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
