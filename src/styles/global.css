@@ -45,18 +45,18 @@
   --color-secondary-900: #2C2F33;
   --color-secondary-950: #1A1C1F;
 
-  /* Accent — Jaune Électrique */
-  --color-accent-50: #FFFBEB;
-  --color-accent-100: #FEF3C7;
-  --color-accent-200: #FDE68A;
-  --color-accent-300: #FCD34D;
-  --color-accent-400: #FBBF24;
-  --color-accent-500: #F59E0B;
-  --color-accent-600: #D97706;
-  --color-accent-700: #B45309;
-  --color-accent-800: #92400E;
-  --color-accent-900: #78350F;
-  --color-accent-950: #451A03;
+  /* Accent — Lime Électrique (Option B) */
+  --color-accent-50: #F7FEE7;
+  --color-accent-100: #ECFCCB;
+  --color-accent-200: #D9F99D;
+  --color-accent-300: #BEF264;
+  --color-accent-400: #A3E635;
+  --color-accent-500: #84CC16;
+  --color-accent-600: #65A30D;
+  --color-accent-700: #4D7C0F;
+  --color-accent-800: #3F6212;
+  --color-accent-900: #365314;
+  --color-accent-950: #1A2E05;
 
   /* Neutral — Gris Chaud */
   --color-neutral-50: #FAFAFA;
