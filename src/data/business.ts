@@ -52,4 +52,39 @@ export const business = {
     count: 2,
     platform: "Google",
   },
+  schemaType: "Electrician",
+} as const;
+
+// ============================================================
+// Data SEO technique (non editable par le client — doctrine wf-00-cms §7)
+// Extrait du pages/index.astro pre-C1 pour centralisation dans schemas.ts.
+// Modification = Marc uniquement via wf-11 (nouveaux horaires, nouvelle zone,
+// nouveau moyen de paiement).
+// ============================================================
+
+export const schemaData = {
+  openingHours: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '07:30',
+      closes: '17:00',
+    },
+  ],
+  // areaServed avec GeoCircle (rayon 50km autour de Verdun-en-Lauragais)
+  areaServed: [
+    { '@type': 'City', name: 'Castelnaudary' },
+    {
+      '@type': 'GeoCircle',
+      geoMidpoint: {
+        '@type': 'GeoCoordinates',
+        latitude: business.geo.latitude,
+        longitude: business.geo.longitude,
+      },
+      geoRadius: '50000',
+    },
+  ],
+  priceRange: '€€',
+  paymentAccepted: [] as string[],
+  sameAs: [business.social.googleBusiness].filter(Boolean),
 } as const;
