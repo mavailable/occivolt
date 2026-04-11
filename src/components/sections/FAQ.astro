@@ -1,40 +1,10 @@
 ---
-import { business } from '@data/business';
+import { getFaq } from '@data/content';
 
-const faqs = [
-  {
-    question: "Quelle est votre zone d'intervention ?",
-    answer: "Je suis basé à Verdun-en-Lauragais (11400), à quelques minutes de Castelnaudary. J'interviens dans un rayon de 30 km pour les dépannages urgents et jusqu'à 50 km pour les chantiers planifiés. Cela couvre Castelnaudary, Bram, Villefranche-de-Lauragais, Revel, Saint-Papoul et les communes environnantes.",
-  },
-  {
-    question: "Le devis est-il vraiment gratuit ?",
-    answer: "Oui, le devis est entièrement gratuit et sans engagement. Je me déplace chez vous pour évaluer votre besoin, je prends le temps de vous expliquer les travaux envisagés, puis je vous envoie un devis détaillé. Vous décidez en toute liberté.",
-  },
-  {
-    question: "Quels sont vos horaires ?",
-    answer: `Je suis disponible du lundi au vendredi, de 7h30 à 17h00. En cas de dépannage urgent, n'hésitez pas à me contacter par téléphone au ${business.phoneDisplay} — je fais toujours mon possible pour intervenir rapidement.`,
-  },
-  {
-    question: "Quels types de travaux prenez-vous en charge ?",
-    answer: "J'interviens sur tous les travaux d'électricité pour les particuliers : installation complète dans le neuf, rénovation électrique, dépannage, mise en conformité aux normes NF C 15-100, motorisation de portails, éclairage intérieur et extérieur, et prochainement installation de bornes de recharge IRVE.",
-  },
-  {
-    question: "Êtes-vous assuré pour vos interventions ?",
-    answer: "Oui, Occi'Volt Électricité dispose d'une assurance responsabilité civile professionnelle et d'une garantie décennale qui couvrent l'ensemble de mes interventions. Vous pouvez me demander les attestations à tout moment.",
-  },
-  {
-    question: "Combien de temps dure une intervention ?",
-    answer: "Cela dépend de la nature des travaux. Un dépannage simple peut être réglé en une à deux heures. Une rénovation de tableau électrique prend généralement une journée. Pour les chantiers plus importants, je vous indique la durée estimée dans le devis.",
-  },
-  {
-    question: "Quels moyens de paiement acceptez-vous ?",
-    answer: "J'accepte les paiements par virement bancaire, chèque et espèces. Les modalités de paiement sont précisées dans le devis, avec possibilité d'échelonnement selon le montant des travaux*.<br><small class='block mt-2 text-neutral-500 text-xs'>*Conditions à voir sur devis.</small>",
-  },
-  {
-    question: "Pourquoi choisir Occi'Volt plutôt qu'un autre électricien ?",
-    answer: "Parce que vous bénéficiez d'un interlocuteur unique, réactif et à l'écoute. Je travaille exclusivement avec des particuliers, ce qui signifie que votre projet a toute mon attention. Mes clients soulignent la ponctualité, la qualité du travail et la clarté des explications. Et avec un devis gratuit, vous n'avez rien à perdre.",
-  },
-];
+// Doctrine C1 : source unique de verite dans src/content/faq/*.json
+// Le schema.org FAQPage lit aussi cette source via getFAQPageSchema()
+// dans schemas.ts (strip HTML pour Google Rich Results).
+const faqs = getFaq();
 ---
 
 <section id="faq" class="relative py-20 md:py-24 bg-neutral-50 overflow-hidden">

@@ -1,6 +1,6 @@
 {
   "slug": "paiement",
   "question": "Quels moyens de paiement acceptez-vous ?",
-  "answer": "J'accepte les paiements par virement bancaire, chèque et espèces. Les modalités de paiement sont précisées dans le devis, avec possibilité d'échelonnement selon le montant des travaux.",
+  "answer": "J'accepte les paiements par virement bancaire, chèque et espèces. Les modalités de paiement sont précisées dans le devis, avec possibilité d'échelonnement selon le montant des travaux*.<br><small class='block mt-2 text-neutral-500 text-xs'>*Conditions à voir sur devis.</small>",
   "order": 7
 }

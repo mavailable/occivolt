@@ -148,7 +148,18 @@ export function getWebsiteSchema(): object {
 
 // ============================================================
 // getFAQPageSchema — FAQPage (null si pas de faq)
+// Note : strip HTML de faq.answer car certaines reponses peuvent contenir
+// <br>, <small> ou autres tags pour le rendu visuel (ex: fine print
+// disclaimer). Google Rich Results veut du plain text pour acceptedAnswer.
 // ============================================================
+
+function stripHtml(html: string): string {
+  return html
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 
 export function getFAQPageSchema(): object | null {
   const faqs = getFaq();
@@ -161,7 +172,7 @@ export function getFAQPageSchema(): object | null {
       name: faq.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer,
+        text: stripHtml(faq.answer),
       },
     })),
   };
