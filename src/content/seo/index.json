@@ -1,0 +1,39 @@
+{
+  "global": {
+    "siteName": "Occi'Volt",
+    "separator": "\u2014",
+    "defaultOgImage": "/images/og-image.jpg"
+  },
+  "pages": {
+    "/": {
+      "title": "Electricien a Castelnaudary | Devis gratuit",
+      "description": "Electricien pour particuliers a Castelnaudary et dans le Lauragais. Installation, renovation, depannage, mise en conformite. Devis gratuit, intervention rapide.",
+      "ogImage": "",
+      "noindex": false
+    },
+    "/mentions-legales": {
+      "title": "Mentions legales",
+      "description": "",
+      "ogImage": "",
+      "noindex": false
+    },
+    "/politique-confidentialite": {
+      "title": "Politique de confidentialite",
+      "description": "",
+      "ogImage": "",
+      "noindex": false
+    },
+    "/merci": {
+      "title": "Message envoye",
+      "description": "",
+      "ogImage": "",
+      "noindex": true
+    },
+    "/404": {
+      "title": "Page introuvable",
+      "description": "",
+      "ogImage": "",
+      "noindex": true
+    }
+  }
+}
