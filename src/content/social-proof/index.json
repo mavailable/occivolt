@@ -1,0 +1,8 @@
+{
+  "stats": [
+    { "value": "", "suffix": "/5", "label": "", "sublabel": "Note Google", "type": "rating", "accentColor": "accent" },
+    { "value": "1", "suffix": "+", "label": "an", "sublabel": "d'activite", "type": "text", "accentColor": "primary" },
+    { "value": "50", "suffix": " km", "label": "de rayon", "sublabel": "Zone chantiers", "type": "text", "accentColor": "primary" },
+    { "value": "100", "suffix": "%", "label": "particuliers", "sublabel": "Clientele exclusive", "type": "text", "accentColor": "accent" }
+  ]
+}

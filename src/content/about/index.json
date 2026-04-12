@@ -1,0 +1,21 @@
+{
+  "sectionLabel": "A propos",
+  "title": "Votre artisan electricien",
+  "titleHighlight": "dans le Lauragais",
+  "paragraphs": [
+    "<strong class=\"text-secondary-900\">Mr Barone Tony</strong>, fondateur d'Occi'Volt Electricite, est installe a Verdun-en-Lauragais depuis janvier 2025. Il intervient aupres des particuliers a Castelnaudary et dans tout le Lauragais audois.",
+    "Fort de plus de trois ans d'experience terrain - renovations completes, depannages d'urgence, installations neuves - il a cree sa propre entreprise avec une conviction&nbsp;: <strong class=\"text-secondary-900\">un travail bien fait commence par une ecoute attentive du client</strong>.",
+    "Occi'Volt, c'est un engagement&nbsp;: un service electrique fiable, propre et conforme aux normes. Tony se deplace dans un rayon de 50&nbsp;km, propose des devis gratuits et sans engagement, et s'engage sur la qualite de chaque intervention."
+  ],
+  "keyPoints": [
+    { "label": "Reactivite", "desc": "Intervention rapide", "icon": "lightning" },
+    { "label": "Proximite", "desc": "Base dans le Lauragais", "icon": "location" },
+    { "label": "Qualite", "desc": "Norme NF C 15-100", "icon": "check" },
+    { "label": "Transparence", "desc": "Devis gratuit detaille", "icon": "currency" }
+  ],
+  "ctaLabel": "Parlons de votre projet",
+  "ctaLink": "#contact",
+  "image": "/images/galerie/avant-apres-tableau.webp",
+  "imageAlt": "Tableau electrique avant/apres - un exemple du savoir-faire Occi'Volt",
+  "floatingCard": { "value": "100%", "label": "Conforme NF C 15-100" }
+}

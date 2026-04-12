@@ -1,23 +1,10 @@
 ---
-const testimonials = [
-  {
-    name: 'Nathalie D.',
-    quote: "Très satisfaite de l'intervention pour le dépannage électrique. Intervention rapide, travail soigné et professionnel. Le technicien a été ponctuel, clair dans ses explications et le problème a été résolu efficacement. Je recommande sans hésiter.",
-    context: 'Dépannage électrique',
-    initials: 'N',
-    color: 'bg-primary-600',
-  },
-  {
-    name: 'Adeline',
-    quote: "Très satisfait du travail réalisé, une rénovation complète ! L'artisan est vraiment à l'écoute, réactif, compétent et de bon conseils. On sent le professionnalisme et l'expérience. Un service de qualité, rassurant et efficace.",
-    context: 'Rénovation complète',
-    initials: 'A',
-    color: 'bg-accent-500',
-  },
-];
+import { getTestimonials } from '@data/content';
+
+const testimonials = getTestimonials();
 ---
 
-<section id="temoignages" class="relative py-20 md:py-24 bg-neutral-50 overflow-hidden">
+<section id="temoignages" class="relative py-20 md:py-24 bg-neutral-50 overflow-hidden" data-cms-field="testimonials" data-cms-type="collection">
   <!-- Decorative quote -->
   <div class="absolute top-8 left-8 text-neutral-200 opacity-50" aria-hidden="true">
     <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11h4v10H0z"/></svg>
@@ -25,7 +12,7 @@ const testimonials = [
 
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
-      <span class="inline-block text-xs font-bold text-primary-600 uppercase tracking-widest mb-3">Témoignages</span>
+      <span class="inline-block text-xs font-bold text-primary-600 uppercase tracking-widest mb-3">Temoignages</span>
       <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900">
         Ce que disent <span class="text-primary-600">nos clients</span>
       </h2>
@@ -42,18 +29,18 @@ const testimonials = [
           </div>
 
           <!-- Quote -->
-          <blockquote class="text-neutral-600 leading-relaxed mb-6">
+          <blockquote class="text-neutral-600 leading-relaxed mb-6" data-cms-field={`testimonials.${t._slug}.quote`} data-cms-type="text">
             <p>"{t.quote}"</p>
           </blockquote>
 
           <!-- Author -->
           <footer class="flex items-center gap-3 pt-5 border-t border-neutral-100">
-            <div class={`w-11 h-11 ${t.color} rounded-full flex items-center justify-center shadow-sm`}>
-              <span class="text-white font-bold text-sm">{t.initials}</span>
+            <div class={`w-11 h-11 ${t.color || 'bg-primary-600'} rounded-full flex items-center justify-center shadow-sm`}>
+              <span class="text-white font-bold text-sm">{t.initials || t.name.charAt(0)}</span>
             </div>
             <div>
-              <cite class="not-italic font-bold text-secondary-900">{t.name}</cite>
-              <p class="text-xs text-neutral-600">{t.context}</p>
+              <cite class="not-italic font-bold text-secondary-900" data-cms-field={`testimonials.${t._slug}.name`} data-cms-type="text">{t.name}</cite>
+              <p class="text-xs text-neutral-600" data-cms-field={`testimonials.${t._slug}.context`} data-cms-type="text">{t.context}</p>
             </div>
             <div class="ml-auto">
               <svg class="w-5 h-5 text-neutral-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

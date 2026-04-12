@@ -1,0 +1,13 @@
+{
+  "badge": "Electricien dedie aux particuliers",
+  "title": "Votre electricien a",
+  "titleHighlight": "Castelnaudary",
+  "titleEnd": "et dans tout le Lauragais",
+  "description": "Installation, renovation, depannage et mise en conformite. Un artisan reactif, a l'ecoute, et des devis gratuits sans engagement.",
+  "ctaLabel": "Demander mon devis gratuit",
+  "ctaLink": "#contact",
+  "trustBadges": ["Devis gratuit", "Intervention rapide", "Norme NF C 15-100"],
+  "backgroundImage": "/images/galerie/avant-apres-tableau.webp",
+  "sideImage": "/images/galerie/eclairage-jardin.webp",
+  "sideImageAlt": "Eclairage exterieur realise par Occi'Volt dans un jardin du Lauragais"
+}
