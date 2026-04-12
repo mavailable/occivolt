@@ -2,15 +2,22 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
-import cloudflare from '@astrojs/cloudflare';
+
+// Occi'Volt — static output, CMS maison actif via CF Pages Functions
+// (le dashboard /admin est une page statique qui charge CmsApp en client:only).
+// Le dossier functions/api/cms/* est servi directement par Cloudflare Pages.
+// PAS d'adapter cloudflare() : en mode static, l'adapter genere un _worker.js
+// qui intercepte les requetes et empeche CF Pages de router vers functions/.
 
 export default defineConfig({
   site: 'https://occivolt.pages.dev',
   output: 'static',
-  adapter: cloudflare(),
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/admin') && !page.includes('/merci'),
+      filter: (page) =>
+        !page.includes('/merci') &&
+        !page.includes('/404') &&
+        !page.includes('/admin'),
       i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR' } },
     }),
     react(),
