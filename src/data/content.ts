@@ -7,9 +7,8 @@
  * schemas.ts puisse lire les collections (services, faq, testimonials) comme
  * source unique de verite pour le Schema.org.
  *
- * Les composants FAQ.astro / Services.astro / Testimonials.astro utilisent
- * encore leurs versions hardcodees — unification a faire ulterieurement
- * (hors scope C1).
+ * Les composants FAQ.astro, Services.astro et Testimonials.astro lisent
+ * tous les JSON via les getters ci-dessous (source unique de verite).
  */
 
 import fs from 'node:fs';

@@ -1,20 +1,8 @@
 ---
-const testimonials = [
-  {
-    name: 'Nathalie D.',
-    quote: "Très satisfaite de l'intervention pour le dépannage électrique. Intervention rapide, travail soigné et professionnel. Le technicien a été ponctuel, clair dans ses explications et le problème a été résolu efficacement. Je recommande sans hésiter.",
-    context: 'Dépannage électrique',
-    initials: 'N',
-    color: 'bg-primary-600',
-  },
-  {
-    name: 'Adeline',
-    quote: "Très satisfait du travail réalisé, une rénovation complète ! L'artisan est vraiment à l'écoute, réactif, compétent et de bon conseils. On sent le professionnalisme et l'expérience. Un service de qualité, rassurant et efficace.",
-    context: 'Rénovation complète',
-    initials: 'A',
-    color: 'bg-accent-500',
-  },
-];
+import { getTestimonials } from '@data/content';
+
+// Doctrine CMS : source unique de verite dans src/content/testimonials/*.json
+const testimonials = getTestimonials();
 ---
 
 <section id="temoignages" class="relative py-20 md:py-24 bg-neutral-50 overflow-hidden">

@@ -1,49 +1,9 @@
 ---
-import Button from '@components/ui/Button.astro';
+import { getServices } from '@data/content';
 
-const services = [
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />`,
-    title: 'Installation électrique',
-    description: "Tableau, câblage, prises, éclairage intérieur et extérieur, spots encastrés. Chaque chantier respecte la norme NF C 15-100.",
-    photo: '/images/galerie/spots-plafond.webp',
-    photoAlt: "Spots LED encastrés dans un faux plafond — Occi'Volt",
-    number: '01',
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.71-5.71a8 8 0 1111.42 0l-5.71 5.71zm0 0L19 21" />`,
-    title: 'Dépannage & rénovation',
-    description: "Intervention rapide dans un rayon de 30 km. Diagnostic, remplacement de tableaux, remise aux normes.",
-    photo: '/images/galerie/avant-apres-tableau.webp',
-    photoAlt: "Avant/après remplacement tableau électrique — Occi'Volt",
-    number: '02',
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,
-    title: 'Mise en conformité',
-    description: "Diagnostic complet et mise aux normes NF C 15-100, remplacement de composants obsolètes. Indispensable pour votre sécurité.",
-    photo: '/images/galerie/tableau-3-rangees.webp',
-    photoAlt: "Tableau électrique 3 rangées — Occi'Volt",
-    number: '03',
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />`,
-    title: 'Portails électriques',
-    description: "Motorisation, automatisation, télécommande, interphone et éclairage d'accès. Confort et sécurité.",
-    photo: '/images/galerie/coffret-exterieur.webp',
-    photoAlt: "Coffret électrique extérieur — Occi'Volt",
-    number: '04',
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /><circle cx="18" cy="18" r="3" stroke-linecap="round" />`,
-    title: 'Bornes IRVE',
-    badge: 'Bientôt',
-    description: "Recharge de véhicules électriques à domicile avec certification IRVE. La transition énergétique chez vous.",
-    photo: '/images/galerie/coffret-secondaire.webp',
-    photoAlt: "Coffret secondaire avec disjoncteur — Occi'Volt",
-    number: '05',
-  },
-];
+// Doctrine CMS : source unique de verite dans src/content/services/*.json
+// Le schema.org lit aussi cette source via getServicesSchema() dans schemas.ts.
+const services = getServices();
 ---
 
 <section id="services" class="relative py-20 md:py-28 bg-neutral-50 overflow-hidden">
