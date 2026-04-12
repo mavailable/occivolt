@@ -21,6 +21,8 @@ import { business } from '@data/business';
             alt="Tableau électrique avant/après — un exemple du savoir-faire Occi'Volt"
             class="w-full aspect-[4/3] object-cover"
             loading="lazy"
+            data-cms-field="site-info.aboutImage"
+            data-cms-type="image"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-secondary-950/40 via-transparent to-transparent"></div>
         </div>
@@ -48,11 +50,11 @@ import { business } from '@data/business';
       <!-- Text side -->
       <div>
         <span class="inline-block text-xs font-bold text-primary-600 uppercase tracking-widest mb-3">À propos</span>
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 mb-6">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 mb-6" data-cms-field="site-info.aboutTitle" data-cms-type="text">
           Votre artisan électricien <span class="text-primary-600">dans le Lauragais</span>
         </h2>
 
-        <div class="space-y-4 text-neutral-600 leading-relaxed">
+        <div class="space-y-4 text-neutral-600 leading-relaxed" data-cms-field="site-info.aboutContent" data-cms-type="richtext">
           <p>
             <strong class="text-secondary-900">Mr Barone Tony</strong>, fondateur d'Occi'Volt Électricité, est installé à Verdun-en-Lauragais depuis janvier 2025. Il intervient auprès des particuliers à Castelnaudary et dans tout le Lauragais audois.
           </p>

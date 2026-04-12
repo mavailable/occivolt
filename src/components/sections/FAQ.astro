@@ -7,7 +7,7 @@ import { getFaq } from '@data/content';
 const faqs = getFaq();
 ---
 
-<section id="faq" class="relative py-20 md:py-24 bg-neutral-50 overflow-hidden">
+<section id="faq" class="relative py-20 md:py-24 bg-neutral-50 overflow-hidden" data-cms-field="faq" data-cms-type="collection">
   <!-- Decorative -->
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-300 to-transparent" aria-hidden="true"></div>
   <div class="absolute top-20 right-0 w-40 h-40 bg-primary-100/50 rounded-full blur-3xl -z-0" aria-hidden="true"></div>
@@ -16,10 +16,10 @@ const faqs = getFaq();
   <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <span class="inline-block text-xs font-bold text-primary-600 uppercase tracking-widest mb-3">FAQ</span>
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 mb-4">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 mb-4" data-cms-field="site-info.faqTitle" data-cms-type="text">
         Questions <span class="text-primary-600">fréquentes</span>
       </h2>
-      <p class="text-neutral-500 max-w-xl mx-auto">Tout ce que vous devez savoir avant de faire appel à nos services.</p>
+      <p class="text-neutral-500 max-w-xl mx-auto" data-cms-field="site-info.faqSubtitle" data-cms-type="text">Tout ce que vous devez savoir avant de faire appel à nos services.</p>
     </div>
 
     <div class="space-y-3">
@@ -35,13 +35,13 @@ const faqs = getFaq();
                   <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </span>
-              <span class="text-left">{faq.question}</span>
+              <span class="text-left" data-cms-field={`faq.${faq.slug}.question`} data-cms-type="text">{faq.question}</span>
             </div>
             <svg class="w-5 h-5 text-neutral-400 shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
-          <div class="px-6 pb-5 ml-11 text-neutral-600 leading-relaxed text-sm border-t border-neutral-100 pt-4">
+          <div class="px-6 pb-5 ml-11 text-neutral-600 leading-relaxed text-sm border-t border-neutral-100 pt-4" data-cms-field={`faq.${faq.slug}.answer`} data-cms-type="richtext">
             <p set:html={faq.answer} />
           </div>
         </details>
