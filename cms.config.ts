@@ -15,7 +15,7 @@ const cmsConfig: CmsConfig = {
       description: 'Formulaire de contact',
       path: 'src/content/contact/index.json',
       fields: {
-        web3formsKey: { type: 'text', label: 'Cle Web3Forms (formulaire)', description: 'Creez votre cle gratuite sur web3forms.com puis collez-la ici pour recevoir vos formulaires directement.' },
+        web3formsKey: { type: 'text', label: 'Cle Web3Forms (formulaire)', description: 'Collez votre cle pour recevoir vos formulaires directement. Guide : marcm.fr/aide/web3forms' },
       },
     },
 
