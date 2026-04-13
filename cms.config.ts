@@ -10,11 +10,74 @@ const cmsConfig: CmsConfig = {
   siteName: "Occi'Volt",
 
   singletons: {
+    hero: {
+      label: 'Hero (bandeau principal)',
+      description: 'Titre, description et visuels du haut de page',
+      path: 'src/content/hero/index.json',
+      fields: {
+        badge: { type: 'text', label: 'Badge au-dessus du titre' },
+        title: { type: 'text', label: 'Titre principal (debut)' },
+        titleHighlight: { type: 'text', label: 'Mot en surbrillance' },
+        titleEnd: { type: 'text', label: 'Titre principal (fin)' },
+        description: { type: 'text', label: 'Description sous le titre', multiline: true },
+        ctaLabel: { type: 'text', label: 'Texte du bouton principal' },
+        ctaLink: { type: 'text', label: 'Lien du bouton' },
+        backgroundImage: { type: 'text', label: 'Image de fond (chemin)' },
+        sideImage: { type: 'text', label: 'Photo laterale (chemin)' },
+        sideImageAlt: { type: 'text', label: 'Texte alternatif photo laterale' },
+      },
+    },
+
+    about: {
+      label: 'A propos',
+      description: 'Section presentation de l\'entreprise',
+      path: 'src/content/about/index.json',
+      fields: {
+        sectionLabel: { type: 'text', label: 'Label section' },
+        title: { type: 'text', label: 'Titre' },
+        titleHighlight: { type: 'text', label: 'Partie en couleur du titre' },
+        ctaLabel: { type: 'text', label: 'Texte du bouton' },
+        ctaLink: { type: 'text', label: 'Lien du bouton' },
+        image: { type: 'text', label: 'Photo principale (chemin)' },
+        imageAlt: { type: 'text', label: 'Texte alternatif' },
+      },
+    },
+
+    cta: {
+      label: 'Appel a l\'action (bas de page)',
+      description: 'Bandeau CTA final',
+      path: 'src/content/cta/index.json',
+      fields: {
+        badge: { type: 'text', label: 'Badge' },
+        title: { type: 'text', label: 'Titre' },
+        subtitle: { type: 'text', label: 'Sous-titre', multiline: true },
+        ctaLabel: { type: 'text', label: 'Texte du bouton' },
+        ctaLink: { type: 'text', label: 'Lien du bouton' },
+      },
+    },
+
+    'social-proof': {
+      label: 'Chiffres cles',
+      description: 'Statistiques de preuve sociale',
+      path: 'src/content/social-proof/index.json',
+      fields: {},
+    },
+
     contact: {
       label: 'Section Contact',
-      description: 'Formulaire de contact',
+      description: 'Formulaire de contact + textes de la section',
       path: 'src/content/contact/index.json',
       fields: {
+        sectionLabel: { type: 'text', label: 'Label section' },
+        title: { type: 'text', label: 'Titre (debut)' },
+        titleHighlight: { type: 'text', label: 'Titre (partie en couleur)' },
+        subtitle: { type: 'text', label: 'Sous-titre', multiline: true },
+        sidebarTitle: { type: 'text', label: 'Titre sidebar' },
+        zoneLabel: { type: 'text', label: 'Label zone' },
+        zoneValue: { type: 'text', label: 'Zone principale' },
+        zoneDetail: { type: 'text', label: 'Detail zone' },
+        hoursLabel: { type: 'text', label: 'Label horaires' },
+        satisfactionLabel: { type: 'text', label: 'Label satisfaction' },
         web3formsKey: { type: 'text', label: 'Cle Web3Forms (formulaire)', description: 'Collez votre cle pour recevoir vos formulaires directement. Guide : marcm.fr/aide/web3forms' },
       },
     },

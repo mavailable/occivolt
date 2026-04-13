@@ -1,65 +1,10 @@
 ---
-const images = [
-  {
-    src: '/images/galerie/avant-apres-tableau.webp',
-    alt: "Avant/après : remplacement d'un tableau électrique vétuste par un tableau neuf aux normes — Occi'Volt Électricité",
-    label: 'Avant / Après tableau',
-    tag: 'Rénovation',
-    span: 'lg:col-span-2 lg:row-span-2',
-    aspect: 'aspect-square',
-  },
-  {
-    src: '/images/galerie/eclairage-jardin.webp',
-    alt: "Éclairage extérieur avec niches lumineuses intégrées dans un mur de jardin — Occi'Volt",
-    label: 'Éclairage jardin',
-    tag: 'Extérieur',
-    span: '',
-    aspect: 'aspect-[4/3]',
-  },
-  {
-    src: '/images/galerie/coffret-exterieur.webp',
-    alt: "Installation d'un coffret électrique extérieur étanche — Occi'Volt Électricité",
-    label: 'Coffret extérieur',
-    tag: 'Installation',
-    span: '',
-    aspect: 'aspect-[4/3]',
-  },
-  {
-    src: '/images/galerie/tableau-3-rangees.webp',
-    alt: "Tableau électrique neuf trois rangées installé par Occi'Volt",
-    label: 'Tableau 3 rangées',
-    tag: 'Neuf',
-    span: '',
-    aspect: 'aspect-[4/3]',
-  },
-  {
-    src: '/images/galerie/spots-plafond.webp',
-    alt: "Spots LED encastrés dans un faux plafond — Occi'Volt Électricité",
-    label: 'Spots LED encastrés',
-    tag: 'Éclairage',
-    span: '',
-    aspect: 'aspect-[4/3]',
-  },
-  {
-    src: '/images/galerie/tableau-linky.webp',
-    alt: "Tableau électrique après installation complète — Occi'Volt",
-    label: 'Tableau électrique',
-    tag: 'Mise aux normes',
-    span: '',
-    aspect: 'aspect-[4/3]',
-  },
-  {
-    src: '/images/galerie/coffret-secondaire.webp',
-    alt: "Coffret secondaire avec disjoncteur différentiel — Occi'Volt Électricité",
-    label: 'Coffret secondaire',
-    tag: 'Installation',
-    span: '',
-    aspect: 'aspect-[4/3]',
-  },
-];
+import { getGallery } from '@data/content';
+
+const images = getGallery();
 ---
 
-<section id="galerie" class="relative py-20 md:py-24 bg-secondary-950 overflow-hidden">
+<section id="galerie" class="relative py-20 md:py-24 bg-secondary-950 overflow-hidden" data-cms-field="gallery" data-cms-type="collection">
   <!-- Decorative elements -->
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-500/40 to-transparent" aria-hidden="true"></div>
   <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500/30 to-transparent" aria-hidden="true"></div>
@@ -76,13 +21,15 @@ const images = [
     <!-- Masonry-style grid -->
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
       {images.map((img, i) => (
-        <figure class={`group relative overflow-hidden rounded-xl ${img.span} ${i === 0 ? 'col-span-2 row-span-2' : ''}`}>
+        <figure class={`group relative overflow-hidden rounded-xl ${i === 0 ? 'col-span-2 row-span-2' : ''}`}>
           <div class={`relative ${i === 0 ? 'aspect-square' : 'aspect-[4/3]'} overflow-hidden`}>
             <img
               src={img.src}
               alt={img.alt}
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading={i < 2 ? 'eager' : 'lazy'}
+              data-cms-field={`gallery.${img._slug}.src`}
+              data-cms-type="image"
             />
             <!-- Dark overlay on hover -->
             <div class="absolute inset-0 bg-gradient-to-t from-secondary-950/90 via-secondary-950/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300"></div>
@@ -94,7 +41,7 @@ const images = [
 
             <!-- Label -->
             <figcaption class="absolute bottom-0 left-0 right-0 p-4">
-              <p class="text-white font-heading font-bold text-sm md:text-base translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+              <p class="text-white font-heading font-bold text-sm md:text-base translate-y-1 group-hover:translate-y-0 transition-transform duration-300" data-cms-field={`gallery.${img._slug}.label`} data-cms-type="text">
                 {img.label}
               </p>
               <div class="h-0.5 w-0 group-hover:w-12 bg-accent-400 mt-1.5 transition-all duration-500"></div>

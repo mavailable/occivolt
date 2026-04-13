@@ -1,20 +1,23 @@
 ---
 import ContactForm from '@components/forms/ContactForm.astro';
 import { business } from '@data/business';
+import { getContact } from '@data/content';
+
+const contact = getContact();
 ---
 
-<section id="contact" class="relative py-20 md:py-24 bg-white overflow-hidden">
+<section id="contact" class="relative py-20 md:py-24 bg-white overflow-hidden" data-cms-field="contact" data-cms-type="singleton">
   <!-- Decorative -->
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-300 to-transparent" aria-hidden="true"></div>
   <div class="absolute bottom-0 right-0 w-64 h-64 bg-primary-50/80 rounded-full blur-3xl -z-0" aria-hidden="true"></div>
 
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
-      <span class="inline-block text-xs font-bold text-primary-600 uppercase tracking-widest mb-3">Contact</span>
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 mb-4" data-cms-field="site-info.contactTitle" data-cms-type="text">
-        Parlons de <span class="text-primary-600">votre projet</span>
+      <span class="inline-block text-xs font-bold text-primary-600 uppercase tracking-widest mb-3" data-cms-field="contact.sectionLabel" data-cms-type="text">{contact.sectionLabel}</span>
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 mb-4" data-cms-field="contact.title" data-cms-type="text">
+        {contact.title} <span class="text-primary-600">{contact.titleHighlight}</span>
       </h2>
-      <p class="text-neutral-500 max-w-2xl mx-auto" data-cms-field="site-info.contactSubtitle" data-cms-type="text">Décrivez-nous votre besoin et recevez un devis gratuit sous 24h. Nous vous répondons avec plaisir.</p>
+      <p class="text-neutral-500 max-w-2xl mx-auto" data-cms-field="contact.subtitle" data-cms-type="text">{contact.subtitle}</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
@@ -25,12 +28,12 @@ import { business } from '@data/business';
         </div>
       </div>
 
-      <!-- Coordonnées -->
+      <!-- Coordonnees -->
       <aside class="lg:col-span-2">
         <div class="bg-secondary-950 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
-          <h3 class="font-heading font-bold text-white text-lg">Coordonnées</h3>
+          <h3 class="font-heading font-bold text-white text-lg" data-cms-field="contact.sidebarTitle" data-cms-type="text">{contact.sidebarTitle}</h3>
 
-          <!-- Téléphone -->
+          <!-- Telephone -->
           <div class="flex items-start gap-4">
             <div class="w-11 h-11 bg-primary-600/20 rounded-xl flex items-center justify-center shrink-0">
               <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -38,7 +41,7 @@ import { business } from '@data/business';
               </svg>
             </div>
             <div>
-              <p class="text-sm text-neutral-400">Téléphone</p>
+              <p class="text-sm text-neutral-400">Telephone</p>
               <a href={`tel:${business.phone}`} class="font-semibold text-white hover:text-accent-400 transition-colors">
                 {business.phoneDisplay}
               </a>
@@ -69,9 +72,9 @@ import { business } from '@data/business';
               </svg>
             </div>
             <div>
-              <p class="text-sm text-neutral-400">Zone d'intervention</p>
-              <p class="font-semibold text-white">Castelnaudary & Lauragais</p>
-              <p class="text-xs text-neutral-400 mt-0.5">Aude (11) — rayon {business.zone.chantiers}</p>
+              <p class="text-sm text-neutral-400" data-cms-field="contact.zoneLabel" data-cms-type="text">{contact.zoneLabel}</p>
+              <p class="font-semibold text-white" data-cms-field="contact.zoneValue" data-cms-type="text">{contact.zoneValue}</p>
+              <p class="text-xs text-neutral-400 mt-0.5">{contact.zoneDetail} - rayon {business.zone.chantiers}</p>
             </div>
           </div>
 
@@ -83,9 +86,9 @@ import { business } from '@data/business';
               </svg>
             </div>
             <div>
-              <p class="text-sm text-neutral-400">Horaires</p>
-              <p class="font-semibold text-white">{business.hours[0].day} — {business.hours[4].day}</p>
-              <p class="text-sm text-neutral-400">{business.hours[0].open} – {business.hours[0].close}</p>
+              <p class="text-sm text-neutral-400" data-cms-field="contact.hoursLabel" data-cms-type="text">{contact.hoursLabel}</p>
+              <p class="font-semibold text-white">{business.hours[0].day} - {business.hours[4].day}</p>
+              <p class="text-sm text-neutral-400">{business.hours[0].open} - {business.hours[0].close}</p>
             </div>
           </div>
 
@@ -97,9 +100,9 @@ import { business } from '@data/business';
                   <svg class="w-4 h-4 text-accent-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                 ))}
               </div>
-              <span class="text-sm text-white font-semibold" aria-label={`Note de ${business.rating.value} sur 5 étoiles sur Google`}>{business.rating.value}/5 sur Google</span>
+              <span class="text-sm text-white font-semibold" aria-label={`Note de ${business.rating.value} sur 5 etoiles sur Google`}>{business.rating.value}/5 sur Google</span>
             </div>
-            <p class="text-xs text-neutral-400 mt-2">Clients 100% satisfaits</p>
+            <p class="text-xs text-neutral-400 mt-2" data-cms-field="contact.satisfactionLabel" data-cms-type="text">{contact.satisfactionLabel}</p>
           </div>
         </div>
       </aside>

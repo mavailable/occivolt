@@ -1,9 +1,19 @@
 ---
 import Button from '@components/ui/Button.astro';
 import { business } from '@data/business';
+import { getAbout } from '@data/content';
+
+const about = getAbout();
+
+const iconPaths: Record<string, string> = {
+  lightning: '<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />',
+  location: '<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />',
+  check: '<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />',
+  currency: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />',
+};
 ---
 
-<section id="a-propos" class="relative py-20 md:py-24 bg-white overflow-hidden">
+<section id="a-propos" class="relative py-20 md:py-24 bg-white overflow-hidden" data-cms-field="about" data-cms-type="singleton">
   <!-- Decorative dots pattern -->
   <div class="absolute top-0 right-0 w-64 h-64 opacity-[0.03]" aria-hidden="true"
     style="background-image: radial-gradient(circle, #2E7B37 1px, transparent 1px); background-size: 20px 20px;">
@@ -17,11 +27,11 @@ import { business } from '@data/business';
         <!-- Main photo -->
         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
           <img
-            src="/images/galerie/avant-apres-tableau.webp"
-            alt="Tableau électrique avant/après — un exemple du savoir-faire Occi'Volt"
+            src={about.image}
+            alt={about.imageAlt}
             class="w-full aspect-[4/3] object-cover"
             loading="lazy"
-            data-cms-field="site-info.aboutImage"
+            data-cms-field="about.image"
             data-cms-type="image"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-secondary-950/40 via-transparent to-transparent"></div>
@@ -36,8 +46,8 @@ import { business } from '@data/business';
               </svg>
             </div>
             <div>
-              <p class="text-2xl font-heading font-extrabold text-secondary-900">100%</p>
-              <p class="text-xs text-neutral-600">Conforme NF C 15-100</p>
+              <p class="text-2xl font-heading font-extrabold text-secondary-900" data-cms-field="about.floatingCard.value" data-cms-type="text">{about.floatingCard.value}</p>
+              <p class="text-xs text-neutral-600" data-cms-field="about.floatingCard.label" data-cms-type="text">{about.floatingCard.label}</p>
             </div>
           </div>
         </div>
@@ -49,35 +59,24 @@ import { business } from '@data/business';
 
       <!-- Text side -->
       <div>
-        <span class="inline-block text-xs font-bold text-primary-600 uppercase tracking-widest mb-3">À propos</span>
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 mb-6" data-cms-field="site-info.aboutTitle" data-cms-type="text">
-          Votre artisan électricien <span class="text-primary-600">dans le Lauragais</span>
+        <span class="inline-block text-xs font-bold text-primary-600 uppercase tracking-widest mb-3" data-cms-field="about.sectionLabel" data-cms-type="text">{about.sectionLabel}</span>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 mb-6" data-cms-field="about.title" data-cms-type="text">
+          {about.title} <span class="text-primary-600">{about.titleHighlight}</span>
         </h2>
 
-        <div class="space-y-4 text-neutral-600 leading-relaxed" data-cms-field="site-info.aboutContent" data-cms-type="richtext">
-          <p>
-            <strong class="text-secondary-900">Mr Barone Tony</strong>, fondateur d'Occi'Volt Électricité, est installé à Verdun-en-Lauragais depuis janvier 2025. Il intervient auprès des particuliers à Castelnaudary et dans tout le Lauragais audois.
-          </p>
-          <p>
-            Fort de plus de trois ans d'expérience terrain — rénovations complètes, dépannages d'urgence, installations neuves — il a créé sa propre entreprise avec une conviction&nbsp;: <strong class="text-secondary-900">un travail bien fait commence par une écoute attentive du client</strong>.
-          </p>
-          <p>
-            Occi'Volt, c'est un engagement&nbsp;: un service électrique fiable, propre et conforme aux normes. Tony se déplace dans un rayon de 50&nbsp;km, propose des devis gratuits et sans engagement, et s'engage sur la qualité de chaque intervention.
-          </p>
+        <div class="space-y-4 text-neutral-600 leading-relaxed" data-cms-field="about.paragraphs" data-cms-type="rich-text">
+          {about.paragraphs.map((p) => (
+            <p set:html={p} />
+          ))}
         </div>
 
         <!-- Key points -->
-        <div class="grid grid-cols-2 gap-4 mt-8 mb-8">
-          {[
-            { icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />', label: 'Réactivité', desc: 'Intervention rapide' },
-            { icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />', label: 'Proximité', desc: 'Basé dans le Lauragais' },
-            { icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />', label: 'Qualité', desc: 'Norme NF C 15-100' },
-            { icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />', label: 'Transparence', desc: 'Devis gratuit détaillé' },
-          ].map(item => (
+        <div class="grid grid-cols-2 gap-4 mt-8 mb-8" data-cms-field="about.keyPoints" data-cms-type="list">
+          {about.keyPoints.map(item => (
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center shrink-0">
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                  <Fragment set:html={item.icon} />
+                  <Fragment set:html={iconPaths[item.icon] || ''} />
                 </svg>
               </div>
               <div>
@@ -88,8 +87,8 @@ import { business } from '@data/business';
           ))}
         </div>
 
-        <Button href="#contact" size="lg">
-          Parlons de votre projet
+        <Button href={about.ctaLink} size="lg">
+          {about.ctaLabel}
         </Button>
       </div>
     </div>
