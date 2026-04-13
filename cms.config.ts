@@ -10,6 +10,15 @@ const cmsConfig: CmsConfig = {
   siteName: "Occi'Volt",
 
   singletons: {
+    contact: {
+      label: 'Section Contact',
+      description: 'Formulaire de contact',
+      path: 'src/content/contact/index.json',
+      fields: {
+        web3formsKey: { type: 'text', label: 'Cle Web3Forms (formulaire)', description: 'Creez votre cle gratuite sur web3forms.com puis collez-la ici pour recevoir vos formulaires directement.' },
+      },
+    },
+
     'site-info': {
       label: 'Informations generales',
       description: 'Nom, telephone, email, adresse, horaires',

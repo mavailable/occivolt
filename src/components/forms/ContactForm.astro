@@ -1,6 +1,7 @@
 ---
 import Button from '@components/ui/Button.astro';
-import { business } from '@data/business';
+import { business, web3formsKey as fallbackKey } from '@data/business';
+import fs from 'node:fs';
 
 interface Props {
   class?: string;
@@ -8,11 +9,13 @@ interface Props {
 
 const { class: className = '' } = Astro.props;
 
-/**
- * Web3Forms — Remplacer VOTRE_CLE par la clé d'accès Web3Forms.
- * Créer une clé gratuite sur https://web3forms.com/
- */
-const WEB3FORMS_KEY = 'c0bd1321-2868-459f-9002-4924bc8553fe';
+// Web3Forms — cascade: CMS content → env var → cle Marc (defaut agence)
+let cmsKey = '';
+try {
+  const raw = fs.readFileSync('src/content/contact/index.json', 'utf-8');
+  cmsKey = JSON.parse(raw).web3formsKey || '';
+} catch {}
+const web3formsKey = cmsKey || fallbackKey;
 ---
 
 <form
@@ -23,7 +26,7 @@ const WEB3FORMS_KEY = 'c0bd1321-2868-459f-9002-4924bc8553fe';
   id="contact-form"
 >
   <!-- Web3Forms config -->
-  <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+  <input type="hidden" name="access_key" value={web3formsKey} />
   <input type="hidden" name="redirect" value={`${business.url}/merci`} />
   <input type="hidden" name="from_name" value={business.name} />
   <input type="hidden" name="subject" value={`Nouvelle demande de rappel — ${business.name}`} />
