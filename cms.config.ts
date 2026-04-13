@@ -6,7 +6,7 @@ import type { CmsConfig } from './cms.types';
 
 const cmsConfig: CmsConfig = {
   repo: 'mavailable/occivolt',
-  branch: 'main',
+  branch: 'dev',
   siteName: "Occi'Volt",
 
   singletons: {
