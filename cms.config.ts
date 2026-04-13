@@ -36,10 +36,37 @@ const cmsConfig: CmsConfig = {
         sectionLabel: { type: 'text', label: 'Label section' },
         title: { type: 'text', label: 'Titre' },
         titleHighlight: { type: 'text', label: 'Partie en couleur du titre' },
+        paragraphs: {
+          type: 'array',
+          label: 'Paragraphes de presentation',
+          item: { type: 'text', label: 'Paragraphe', multiline: true },
+        },
+        keyPoints: {
+          type: 'array',
+          label: 'Points forts',
+          itemLabel: 'label',
+          item: {
+            type: 'object',
+            label: 'Point fort',
+            fields: {
+              label: { type: 'text', label: 'Titre' },
+              desc: { type: 'text', label: 'Description' },
+              icon: { type: 'text', label: 'Icone (lightning, location, check, currency)' },
+            },
+          },
+        },
+        floatingCard: {
+          type: 'object',
+          label: 'Badge flottant',
+          fields: {
+            value: { type: 'text', label: 'Valeur' },
+            label: { type: 'text', label: 'Label' },
+          },
+        },
         ctaLabel: { type: 'text', label: 'Texte du bouton' },
         ctaLink: { type: 'text', label: 'Lien du bouton' },
-        image: { type: 'text', label: 'Photo principale (chemin)' },
-        imageAlt: { type: 'text', label: 'Texte alternatif' },
+        image: { type: 'image', label: 'Photo principale' },
+        imageAlt: { type: 'text', label: 'Texte alternatif photo' },
       },
     },
 
@@ -60,7 +87,23 @@ const cmsConfig: CmsConfig = {
       label: 'Chiffres cles',
       description: 'Statistiques de preuve sociale',
       path: 'src/content/social-proof/index.json',
-      fields: {},
+      fields: {
+        stats: {
+          type: 'array',
+          label: 'Statistiques',
+          itemLabel: 'sublabel',
+          item: {
+            type: 'object',
+            label: 'Statistique',
+            fields: {
+              value: { type: 'text', label: 'Valeur' },
+              suffix: { type: 'text', label: 'Suffixe (/5, +, km, %)' },
+              label: { type: 'text', label: 'Label principal' },
+              sublabel: { type: 'text', label: 'Sous-label' },
+            },
+          },
+        },
+      },
     },
 
     contact: {
