@@ -9,6 +9,22 @@ const cmsConfig: CmsConfig = {
   branch: 'dev',
   siteName: "Occi'Volt",
 
+  site: {
+    ownerName: 'Tony',
+    phone: '+33663627871',
+    phoneDisplay: '06 63 62 78 71',
+    email: 'occivolt@gmail.com',
+    siteUrl: 'https://occivolt.fr',
+    previewUrl: 'https://occivolt.pages.dev',
+    clientType: 'entreprise-locale',
+    tagline: 'Electricien a Castelnaudary et dans le Lauragais',
+    contactMarc: {
+      phone: '06 88 76 66 48',
+      whatsapp: '33688766648',
+      email: 'marc@muller.im',
+    },
+  },
+
   singletons: {
     hero: {
       label: 'Hero (bandeau principal)',
