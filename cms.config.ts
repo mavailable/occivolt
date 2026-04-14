@@ -18,6 +18,8 @@ const cmsConfig: CmsConfig = {
     previewUrl: 'https://occivolt.pages.dev',
     clientType: 'entreprise-locale',
     tagline: 'Electricien a Castelnaudary et dans le Lauragais',
+    umamiSiteId: '93ebe970-e491-4805-b489-03236dcfa8b2',
+    umamiShareUrl: 'https://cloud.umami.is/share/YeEqAWtiyvcwUvSQ/occivolt.fr',
     contactMarc: {
       phone: '06 88 76 66 48',
       whatsapp: '33688766648',
